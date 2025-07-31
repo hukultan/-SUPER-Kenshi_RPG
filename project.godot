@@ -24,6 +24,8 @@ Quit="*res://scripts/utility/quit.gd"
 [display]
 
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://buy04n83arvup"
+mouse_cursor/custom_image_hotspot=Vector2(0.9, 0)
 
 [input]
 

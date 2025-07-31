@@ -4,10 +4,11 @@ extends Control
 @onready var node_3d: Node3D = %Node3D
 @onready var margin_container: MarginContainer = $MarginContainer
 @onready var kenshi: Player = %kenshi
+@onready var back_menu_button: Button = $BackMenuButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass 
 
 
 func _on_play_button_pressed() -> void:
@@ -18,7 +19,7 @@ func _on_play_button_pressed() -> void:
 	node_3d.hide()
 	node_3d.process_mode = node_3d.PROCESS_MODE_DISABLED
 	# Show hidden things
-	if $BackMenuButton.hidden: $BackMenuButton.show()
+	if back_menu_button.hidden: back_menu_button.show()
 	if kenshi.hidden: kenshi.show()
 	# I dont know why i wrote this but it ties the entire project
 	# If you delete the entire thing will become unplayable and it will ruin your /
@@ -27,16 +28,16 @@ func _on_play_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	# Play the quit sequence also the audio yeah i forgor
-	$QuitAudio.play()
+
 	# stop everything to process so youy cant escape the impending doom
 	node_3d.process_mode = node_3d.PROCESS_MODE_DISABLED
 	margin_container.process_mode = margin_container.PROCESS_MODE_DISABLED
 	# When the aduio finishes it will do some funny stuff
-	await $QuitAudio.finished
+
 	# funny link that opens your broser automatically
-	OS.shell_open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+	OS.shell_open("https://www.youtube.com/watch?v=X2WH8mHJnhM&list=RDX2WH8mHJnhM")
 	# free robucks 100% true not fake wont close the program trust bro
-	get_tree().quit()
+	Quit.quit()
 
 func _on_texture_button_pressed() -> void:
 	# Send the poor soul who touches this button to hell
@@ -45,7 +46,7 @@ func _on_texture_button_pressed() -> void:
 func _on_back_menu_button_pressed() -> void:
 	# Hide previusly shown things to not break the main menu
 	kenshi.hide()
-	$BackMenuButton.hide()
+	back_menu_button.hide()
 	# Show and process again hidden stuff
 	if margin_container.hidden: margin_container.show()
 	node_3d.process_mode = node_3d.PROCESS_MODE_INHERIT

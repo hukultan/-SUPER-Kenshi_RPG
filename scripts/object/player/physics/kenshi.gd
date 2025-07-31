@@ -26,11 +26,14 @@ func _physics_process(_delta: float) -> void:
 
 
 func set_direction() -> bool:
+	# The direction starts at Vector2.DOWN
 	var new_dir: Vector2 = cardinal_dir
-	if direction == Vector2.ZERO:
+	if direction == Vector2.DOWN:
 		return false
+	# Look left and right based on scale
 	if direction.y == 0:
 		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
+	#
 	elif direction.x == 0:
 		new_dir = Vector2.UP if direction.y > 0 else Vector2.DOWN
 	if new_dir == cardinal_dir:
@@ -40,6 +43,9 @@ func set_direction() -> bool:
 	return true
 
 func update_animation(state: String) -> void:
+	# Get the name of the animation with a direction
+	# To make the animations work, you have to create them from a \
+	# sprite sheet and name it one of the directions
 	animated_sprite.play(state + "_" + anim_direction())
 	pass
 
