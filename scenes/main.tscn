@@ -1,0 +1,145 @@
+[gd_scene load_steps=11 format=3 uid="uid://2or36gkldphs"]
+
+[ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/main.gd" id="1_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dmftsli26rx26" path="res://scenes/kenshi.tscn" id="2_choun"]
+[ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="3_ya4ey"]
+[ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/ui/text_rotate.gd" id="4_eb6dy"]
+[ext_resource type="Script" uid="uid://b7mjykrmg1o0u" path="res://scripts/ui/control.gd" id="5_trceg"]
+[ext_resource type="FontFile" uid="uid://ciapw41rsqeok" path="res://resources/font/COMICZ.TTF" id="6_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://gmos3clovqoi" path="res://textures/yt_logo_tex.png" id="7_jkv2x"]
+[ext_resource type="FontFile" uid="uid://cxs7cd6vuqdpq" path="res://resources/font/COMICBD.TTF" id="8_jbj1t"]
+[ext_resource type="AudioStream" uid="uid://7viarjhqu3d2" path="res://resources/audio/quit.ogg" id="9_muem4"]
+
+[sub_resource type="TextMesh" id="TextMesh_04qyp"]
+text = "DESTROY THIS FUCKING PROGRAM"
+font = ExtResource("3_ya4ey")
+font_size = 22
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_85g3d")
+
+[node name="kenshi" parent="." instance=ExtResource("2_choun")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(518, 299)
+
+[node name="Node3D" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("TextMesh_04qyp")
+script = ExtResource("4_eb6dy")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Node3D"]
+offset_left = 176.0
+offset_top = 6.0
+offset_right = 1022.0
+offset_bottom = 403.0
+scale = Vector2(1, 1.2)
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Node3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(846, 397)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.80018)
+cull_mask = 1047553
+fov = 60.7861
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.45402, -0.471577, 0.755964, -0.20945, 0.768188, 0.604995, 1.13113, 3.7494, 0)
+light_color = Color(0.999735, 1, 0.90019, 1)
+light_cull_mask = 4294966273
+sky_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 646.0
+script = ExtResource("5_trceg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="PlayButton" type="Button" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("6_a8y0u")
+theme_override_font_sizes/font_size = 36
+text = "ambataplay :)"
+
+[node name="QuitButton" type="Button" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("6_a8y0u")
+theme_override_font_sizes/font_size = 36
+toggle_mode = true
+text = "ambataquit :c"
+
+[node name="TextureButton" type="TextureButton" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("7_jkv2x")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/TextureButton"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -69.0
+offset_right = 116.0
+offset_bottom = 5.0
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "[shake][rainbow]Kenshi's channel[/rainbow][/shake]"
+fit_content = true
+scroll_active = false
+
+[node name="Label" type="Label" parent="Control/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("8_jbj1t")
+theme_override_font_sizes/font_size = 31
+text = "Version: -0.0.1 pre-prototype"
+horizontal_alignment = 1
+
+[node name="QuitAudio" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("9_muem4")
+
+[node name="BackMenuButton" type="Button" parent="Control"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_ya4ey")
+theme_override_font_sizes/font_size = 26
+text = "Back to main menu"
+
+[connection signal="pressed" from="Control/MarginContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/QuitButton" to="Control" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/TextureButton" to="Control" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Control/BackMenuButton" to="Control" method="_on_back_menu_button_pressed"]

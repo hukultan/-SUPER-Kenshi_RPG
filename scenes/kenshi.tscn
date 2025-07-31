@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://dmftsli26rx26"]
+
+[ext_resource type="Script" uid="uid://dv7ib8l75nil3" path="res://scripts/object/player/physics/kenshi.gd" id="1_5cfjx"]
+[ext_resource type="Texture2D" uid="uid://81lhgql8nx6" path="res://textures/ken_sheet_move.png" id="2_5cfjx"]
+[ext_resource type="Texture2D" uid="uid://dia3ydu0ru7h1" path="res://textures/ken_sheet_random.png" id="2_yvivp"]
+[ext_resource type="Script" uid="uid://bfwg8qqc340av" path="res://scripts/object/player_state_machine.gd" id="3_2xhpg"]
+[ext_resource type="Script" uid="uid://cv0lw5tg7vkei" path="res://scripts/object/player/states/state_idle.gd" id="4_b1bl1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru3cj"]
+radius = 57.0351
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wumyj"]
+atlas = ExtResource("2_yvivp")
+region = Rect2(191, 704, 459, 667)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cfjx"]
+atlas = ExtResource("2_5cfjx")
+region = Rect2(0, 0, 657, 652)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xhpg"]
+atlas = ExtResource("2_5cfjx")
+region = Rect2(657, 0, 657, 652)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1bl1"]
+atlas = ExtResource("2_5cfjx")
+region = Rect2(0, 680, 676, 680)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvivp"]
+atlas = ExtResource("2_5cfjx")
+region = Rect2(0, 1360, 676, 680)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcgth"]
+atlas = ExtResource("2_5cfjx")
+region = Rect2(676, 1360, 676, 680)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1bl1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wumyj")
+}],
+"loop": true,
+"name": &"blush_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cfjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xhpg")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1bl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvivp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcgth")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="kenshi" type="CharacterBody2D"]
+script = ExtResource("1_5cfjx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+shape = SubResource("CircleShape2D_ru3cj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.839999, 0.68)
+sprite_frames = SubResource("SpriteFrames_b1bl1")
+animation = &"blush_down"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_2xhpg")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_b1bl1")
+
+[node name="Walk" type="Node" parent="StateMachine"]
