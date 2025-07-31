@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://2or36gkldphs"]
 
-[ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/main.gd" id="1_85g3d"]
+[ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/mainn.gd" id="1_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dmftsli26rx26" path="res://scenes/kenshi.tscn" id="2_choun"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="3_ya4ey"]
 [ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/ui/text_rotate.gd" id="4_eb6dy"]

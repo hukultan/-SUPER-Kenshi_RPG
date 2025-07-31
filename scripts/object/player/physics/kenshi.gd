@@ -5,19 +5,23 @@ extends CharacterBody2D
 var direction : Vector2 = Vector2.ZERO
 var cardinal_dir: Vector2 = Vector2.DOWN
 
-
+# Node references to make typing easier
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
+
 func _ready() -> void:
+	# Get the initial state and run it in the scene
 	state_machine._initialize(self)
 	pass
 
 func _process(_delta: float) -> void:
+	# Get the directions from key presses
 	direction = Input.get_vector("left", "right", "up", "down")
 	pass
 
 func _physics_process(_delta: float) -> void:
+	# Move function to process physics every frame
 	move_and_slide()
 
 
