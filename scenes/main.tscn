@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://2or36gkldphs"]
 
-[ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/mainn.gd" id="1_85g3d"]
+[ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/main.gd" id="1_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dmftsli26rx26" path="res://scenes/kenshi.tscn" id="2_choun"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="3_ya4ey"]
 [ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/ui/text_rotate.gd" id="4_eb6dy"]
@@ -12,12 +12,13 @@
 [ext_resource type="AudioStream" uid="uid://7viarjhqu3d2" path="res://resources/audio/quit.ogg" id="9_muem4"]
 
 [sub_resource type="TextMesh" id="TextMesh_04qyp"]
-text = "DESTROY THIS FUCKING PROGRAM"
+text = "need help pls im suffering"
 font = ExtResource("3_ya4ey")
 font_size = 22
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_85g3d")
+funi_alert = false
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
 offset_right = 1154.0
@@ -54,7 +55,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="Node3D/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-scaling_3d_scale = 0.37
+scaling_3d_scale = 0.49
 anisotropic_filtering_level = 0
 size = Vector2i(853, 398)
 render_target_update_mode = 4
@@ -106,14 +107,14 @@ theme_override_font_sizes/font_size = 36
 toggle_mode = true
 text = "ambataquit :c"
 
-[node name="TextureButton" type="TextureButton" parent="Control/MarginContainer"]
+[node name="YoutubeButton" type="TextureButton" parent="Control/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 texture_normal = ExtResource("7_jkv2x")
 texture_hover = ExtResource("8_choun")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/TextureButton"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/YoutubeButton"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.158
@@ -135,7 +136,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("8_jbj1t")
 theme_override_font_sizes/font_size = 31
-text = "Version: -0.0.2 pre-prototype (new repo commit) 
+text = "Version: -0.0.2 pre-prototype (new repository commit) 
 Dont share this to anyone else!"
 horizontal_alignment = 1
 
@@ -166,5 +167,5 @@ text = "Back to main menu"
 
 [connection signal="pressed" from="Control/MarginContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/QuitButton" to="Control" method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/TextureButton" to="Control" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/YoutubeButton" to="Control" method="_on_youtube_button_pressed"]
 [connection signal="pressed" from="Control/BackMenuButton" to="Control" method="_on_back_menu_button_pressed"]

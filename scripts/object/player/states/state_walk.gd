@@ -1,8 +1,9 @@
 class_name State_Walk
 extends State
 
-@export var move_speed: float = 150.0
+@export var move_speed: float = 250.0
 @onready var idle: State_Idle = %Idle
+
 
 func _enter() -> void:
 	player_ref.update_animation("walk")

@@ -2,8 +2,8 @@ class_name Player
 extends CharacterBody2D
 
 
-var direction : Vector2 = Vector2.ZERO
-var cardinal_dir: Vector2 = Vector2.DOWN
+var direction : Vector2 = Vector2.DOWN
+var cardinal_dir: Vector2 = Vector2.ZERO
 
 # Node references to make typing easier
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 func set_direction() -> bool:
 	# The direction starts at Vector2.DOWN
 	var new_dir: Vector2 = cardinal_dir
-	if direction == Vector2.DOWN:
+	if direction == Vector2.ZERO:
 		return false
 	# Look left and right based on scale
 	if direction.y == 0:
@@ -39,7 +39,7 @@ func set_direction() -> bool:
 	if new_dir == cardinal_dir:
 		return false
 	cardinal_dir = new_dir
-	animated_sprite.scale.x = -1 if cardinal_dir == Vector2.LEFT else 1
+	animated_sprite.scale.x = -0.882 if cardinal_dir == Vector2.LEFT else 0.869
 	return true
 
 func update_animation(state: String) -> void:

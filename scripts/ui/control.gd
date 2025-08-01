@@ -28,20 +28,21 @@ func _on_play_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	# Play the quit sequence also the audio yeah i forgor
-
+	$QuitAudio.play()
 	# stop everything to process so youy cant escape the impending doom
 	node_3d.process_mode = node_3d.PROCESS_MODE_DISABLED
 	margin_container.process_mode = margin_container.PROCESS_MODE_DISABLED
 	# When the aduio finishes it will do some funny stuff
-
+	await $QuitAudio.finished
 	# funny link that opens your broser automatically
 	OS.shell_open("https://www.youtube.com/watch?v=X2WH8mHJnhM&list=RDX2WH8mHJnhM")
 	# free robucks 100% true not fake wont close the program trust bro
 	Quit.quit()
 
-func _on_texture_button_pressed() -> void:
+func _on_youtube_button_pressed() -> void:
 	# Send the poor soul who touches this button to hell
 	OS.shell_open("https://www.youtube.com/@ilovekenshi")
+
 
 func _on_back_menu_button_pressed() -> void:
 	# Hide previusly shown things to not break the main menu
@@ -49,5 +50,5 @@ func _on_back_menu_button_pressed() -> void:
 	back_menu_button.hide()
 	# Show and process again hidden stuff
 	if margin_container.hidden: margin_container.show()
-	node_3d.process_mode = node_3d.PROCESS_MODE_INHERIT
 	node_3d.show()
+	node_3d.process_mode = node_3d.PROCESS_MODE_INHERIT

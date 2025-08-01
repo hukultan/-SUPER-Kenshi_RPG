@@ -10,7 +10,7 @@ func _ready() -> void:
 func _enter() -> void:
 	pass
 
-func _exit() -> void:
+func _exit() ->  void:
 	pass
 
 func process_frame(_delta: float) -> State:
