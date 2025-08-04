@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://dmftsli26rx26"]
 
 [ext_resource type="Script" uid="uid://dv7ib8l75nil3" path="res://scripts/object/player/physics/kenshi.gd" id="1_5cfjx"]
-[ext_resource type="Texture2D" uid="uid://81lhgql8nx6" path="res://textures/ken_sheet_move.png" id="2_5cfjx"]
-[ext_resource type="Texture2D" uid="uid://dia3ydu0ru7h1" path="res://textures/ken_sheet_random.png" id="2_yvivp"]
+[ext_resource type="Texture2D" uid="uid://81lhgql8nx6" path="res://textures/sprite_sheets/actors/actor_kenshi/ken_sheet_move.png" id="2_5cfjx"]
+[ext_resource type="Texture2D" uid="uid://dia3ydu0ru7h1" path="res://textures/sprite_sheets/actors/actor_kenshi/ken_sheet_random.png" id="2_yvivp"]
 [ext_resource type="Script" uid="uid://bfwg8qqc340av" path="res://scripts/object/player_state_machine.gd" id="3_2xhpg"]
 [ext_resource type="Script" uid="uid://cv0lw5tg7vkei" path="res://scripts/object/player/states/state_idle.gd" id="4_b1bl1"]
 [ext_resource type="Script" uid="uid://jgkq4na8nubf" path="res://scripts/object/player/states/state_walk.gd" id="6_fcgth"]

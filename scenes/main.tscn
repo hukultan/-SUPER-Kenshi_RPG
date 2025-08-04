@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://2or36gkldphs"]
 
 [ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/main.gd" id="1_85g3d"]
-[ext_resource type="PackedScene" uid="uid://dmftsli26rx26" path="res://scenes/kenshi.tscn" id="2_choun"]
+[ext_resource type="PackedScene" uid="uid://bj33lek3nolv5" path="res://scenes/actors/idk.tscn" id="2_choun"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="3_ya4ey"]
 [ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/ui/text_rotate.gd" id="4_eb6dy"]
 [ext_resource type="Script" uid="uid://b7mjykrmg1o0u" path="res://scripts/ui/control.gd" id="5_trceg"]
@@ -25,10 +25,10 @@ offset_right = 1154.0
 offset_bottom = 665.0
 color = Color(0.121724, 0.436328, 0.77108, 1)
 
-[node name="kenshi" parent="." instance=ExtResource("2_choun")]
+[node name="IDK" parent="." instance=ExtResource("2_choun")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(518, 299)
+position = Vector2(573, 311)
 
 [node name="Node3D" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -136,7 +136,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("8_jbj1t")
 theme_override_font_sizes/font_size = 31
-text = "Version: -0.0.2 pre-prototype (new repository commit) 
+text = "Version: -0.0.3 pre-prototype (Thu Jul 31 21:47:26 2025) 
 Dont share this to anyone else!"
 horizontal_alignment = 1
 

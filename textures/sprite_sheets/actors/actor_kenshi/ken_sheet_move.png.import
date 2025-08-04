@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dia3ydu0ru7h1"
-path="res://.godot/imported/ken_sheet_random.png-2e2894626955a74a60c024236a49edd4.ctex"
+uid="uid://81lhgql8nx6"
+path="res://.godot/imported/ken_sheet_move.png-1900ea29424ee4d6151fcf9c6425adbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/ken_sheet_random.png"
-dest_files=["res://.godot/imported/ken_sheet_random.png-2e2894626955a74a60c024236a49edd4.ctex"]
+source_file="res://textures/sprite_sheets/actors/actor_kenshi/ken_sheet_move.png"
+dest_files=["res://.godot/imported/ken_sheet_move.png-1900ea29424ee4d6151fcf9c6425adbb.ctex"]
 
 [params]
 

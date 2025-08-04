@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://crbp86u3e8yrg"]
+
+[ext_resource type="Script" uid="uid://dv7ib8l75nil3" path="res://scripts/object/player/physics/kenshi.gd" id="1_t8egh"]
+[ext_resource type="Script" uid="uid://bfwg8qqc340av" path="res://scripts/object/player_state_machine.gd" id="3_joveq"]
+[ext_resource type="Script" uid="uid://cv0lw5tg7vkei" path="res://scripts/object/player/states/state_idle.gd" id="4_c3w83"]
+[ext_resource type="Script" uid="uid://jgkq4na8nubf" path="res://scripts/object/player/states/state_walk.gd" id="5_dqswy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru3cj"]
+radius = 57.0351
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1bl1"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_t8egh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+shape = SubResource("CircleShape2D_ru3cj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.881657, 0.868778)
+sprite_frames = SubResource("SpriteFrames_b1bl1")
+animation = &"idle_down"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_joveq")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("4_c3w83")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("5_dqswy")
+move_speed = 100.0

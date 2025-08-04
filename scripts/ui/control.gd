@@ -3,13 +3,12 @@ extends Control
 
 @onready var node_3d: Node3D = %Node3D
 @onready var margin_container: MarginContainer = $MarginContainer
-@onready var kenshi: Player = %kenshi
+@onready var idk: Player = %IDK
 @onready var back_menu_button: Button = $BackMenuButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass 
-
 
 func _on_play_button_pressed() -> void:
 	# When we ambataplay
@@ -20,7 +19,7 @@ func _on_play_button_pressed() -> void:
 	node_3d.process_mode = node_3d.PROCESS_MODE_DISABLED
 	# Show hidden things
 	if back_menu_button.hidden: back_menu_button.show()
-	if kenshi.hidden: kenshi.show()
+	if idk.hidden: idk.show()
 	# I dont know why i wrote this but it ties the entire project
 	# If you delete the entire thing will become unplayable and it will ruin your /
 	# premature career, wanna know? just hit CTRL + V when you play it
@@ -46,7 +45,7 @@ func _on_youtube_button_pressed() -> void:
 
 func _on_back_menu_button_pressed() -> void:
 	# Hide previusly shown things to not break the main menu
-	kenshi.hide()
+	idk.hide()
 	back_menu_button.hide()
 	# Show and process again hidden stuff
 	if margin_container.hidden: margin_container.show()
