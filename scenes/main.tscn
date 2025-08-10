@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://2or36gkldphs"]
+[gd_scene load_steps=11 format=3 uid="uid://2or36gkldphs"]
 
 [ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/main.gd" id="1_85g3d"]
-[ext_resource type="PackedScene" uid="uid://bj33lek3nolv5" path="res://scenes/actors/idk.tscn" id="2_choun"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="3_ya4ey"]
 [ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/ui/text_rotate.gd" id="4_eb6dy"]
 [ext_resource type="Script" uid="uid://b7mjykrmg1o0u" path="res://scripts/ui/control.gd" id="5_trceg"]
@@ -21,14 +20,10 @@ script = ExtResource("1_85g3d")
 funi_alert = false
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
+unique_name_in_owner = true
 offset_right = 1154.0
 offset_bottom = 665.0
 color = Color(0.121724, 0.436328, 0.77108, 1)
-
-[node name="IDK" parent="." instance=ExtResource("2_choun")]
-unique_name_in_owner = true
-visible = false
-position = Vector2(573, 311)
 
 [node name="Node3D" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -145,27 +140,6 @@ stream = ExtResource("9_muem4")
 pitch_scale = 0.97
 bus = &"SFX"
 
-[node name="BackMenuButton" type="Button" parent="Control"]
-visible = false
-layout_mode = 2
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -244.0
-offset_top = -66.0
-offset_right = -14.0
-offset_bottom = -21.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_hover_pressed_color = Color(0.588235, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0.909804, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0.588235, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_ya4ey")
-theme_override_font_sizes/font_size = 31
-text = "Back to main menu"
-
 [connection signal="pressed" from="Control/MarginContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/QuitButton" to="Control" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/YoutubeButton" to="Control" method="_on_youtube_button_pressed"]
-[connection signal="pressed" from="Control/BackMenuButton" to="Control" method="_on_back_menu_button_pressed"]

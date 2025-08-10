@@ -4,8 +4,7 @@ extends CharacterBody2D
 
 var direction : Vector2 = Vector2.DOWN
 var cardinal_dir: Vector2 = Vector2.ZERO
-
-# Node references to make typing easier
+# Node path references to make things easier
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
@@ -17,13 +16,12 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# Get the directions from key presses
-	direction = Input.get_vector("left", "right", "up", "down")
+	direction = Input.get_vector("left", "right", "up", "down").normalized()
 	pass
 
 func _physics_process(_delta: float) -> void:
 	# Move function to process physics every frame
 	move_and_slide()
-
 
 func set_direction() -> bool:
 	# The direction starts at Vector2.DOWN
@@ -33,13 +31,12 @@ func set_direction() -> bool:
 	# Look left and right based on scale
 	if direction.y == 0:
 		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	#
 	elif direction.x == 0:
 		new_dir = Vector2.UP if direction.y > 0 else Vector2.DOWN
 	if new_dir == cardinal_dir:
 		return false
 	cardinal_dir = new_dir
-	animated_sprite.scale.x = -0.882 if cardinal_dir == Vector2.LEFT else 0.869
+	animated_sprite.scale.x = -0.661 if cardinal_dir == Vector2.LEFT else 0.661
 	return true
 
 func update_animation(state: String) -> void:

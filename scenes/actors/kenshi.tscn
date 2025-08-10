@@ -7,9 +7,6 @@
 [ext_resource type="Script" uid="uid://cv0lw5tg7vkei" path="res://scripts/object/player/states/state_idle.gd" id="4_b1bl1"]
 [ext_resource type="Script" uid="uid://jgkq4na8nubf" path="res://scripts/object/player/states/state_walk.gd" id="6_fcgth"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ru3cj"]
-radius = 57.0351
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wumyj"]
 atlas = ExtResource("2_yvivp")
 region = Rect2(191, 704, 459, 667)
@@ -132,18 +129,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="kenshi" type="CharacterBody2D"]
-script = ExtResource("1_5cfjx")
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru3cj"]
+radius = 57.0351
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.90735e-06)
-shape = SubResource("CircleShape2D_ru3cj")
+[node name="kenshi" type="CharacterBody2D"]
+scale = Vector2(0.661, 0.531)
+collision_mask = 16
+motion_mode = 1
+script = ExtResource("1_5cfjx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.881657, 0.868778)
+scale = Vector2(0.661, 0.531)
 sprite_frames = SubResource("SpriteFrames_b1bl1")
 animation = &"idle_down"
+frame_progress = 0.729459
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-13.6157, 20.7156)
+shape = SubResource("CircleShape2D_ru3cj")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_2xhpg")
