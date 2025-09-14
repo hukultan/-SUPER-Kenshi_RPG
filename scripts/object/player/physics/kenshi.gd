@@ -5,8 +5,8 @@ extends CharacterBody2D
 var direction : Vector2 = Vector2.DOWN
 var cardinal_dir: Vector2 = Vector2.ZERO
 # Node path references to make things easier
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var state_machine: PlayerStateMachine = $StateMachine
+@export var animated_sprite: AnimatedSprite2D 
+@export var state_machine: PlayerStateMachine
 
 
 func _ready() -> void:

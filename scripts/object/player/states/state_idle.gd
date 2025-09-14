@@ -3,7 +3,7 @@ extends State
 
 @onready var walk: State_Walk = %Walk
 
-
+  
 func _enter() -> void:
 	player_ref.update_animation("idle")
 	pass

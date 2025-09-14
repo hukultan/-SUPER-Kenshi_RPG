@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6wo8j01gjq01"]
+
+[ext_resource type="Script" uid="uid://d344ykyxdqo5y" path="res://scripts/ui/fade.gd" id="1_nukjo"]
+
+[node name="Fade" type="Node2D"]
+script = ExtResource("1_nukjo")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+top_level = true

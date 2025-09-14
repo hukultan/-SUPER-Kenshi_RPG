@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://crbp86u3e8yrg"]
 
 [ext_resource type="Script" uid="uid://dv7ib8l75nil3" path="res://scripts/object/player/physics/kenshi.gd" id="1_t8egh"]
-[ext_resource type="Script" uid="uid://bfwg8qqc340av" path="res://scripts/object/player_state_machine.gd" id="3_joveq"]
+[ext_resource type="Script" uid="uid://bfwg8qqc340av" path="res://scripts/object/player/player_state_machine.gd" id="3_joveq"]
 [ext_resource type="Script" uid="uid://cv0lw5tg7vkei" path="res://scripts/object/player/states/state_idle.gd" id="4_c3w83"]
 [ext_resource type="Script" uid="uid://jgkq4na8nubf" path="res://scripts/object/player/states/state_walk.gd" id="5_dqswy"]
 
@@ -41,10 +41,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ru3cj"]
 radius = 57.0351
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite", "state_machine")]
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_t8egh")
+animated_sprite = NodePath("AnimatedSprite2D")
+state_machine = NodePath("StateMachine")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

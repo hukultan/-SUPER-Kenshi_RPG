@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://becy5tvguiche"]
+
+[ext_resource type="Texture2D" uid="uid://bh40jx7natsxn" path="res://textures/battle/pp_bar/tp_bar_sprite_bg.png" id="1_ld0bs"]
+[ext_resource type="Script" uid="uid://dkyadmhopfslp" path="res://scripts/object/battle/pp_bar_filling.gd" id="1_pl3ei"]
+[ext_resource type="Texture2D" uid="uid://c0aex5gvjaq03" path="res://textures/battle/pp_bar/tp_bar_sprite_mask.png" id="2_mt53v"]
+[ext_resource type="Texture2D" uid="uid://dftojhsca6i52" path="res://textures/battle/pp_bar/tp_icon.png" id="3_dose5"]
+[ext_resource type="Shader" uid="uid://8el0m2th41kp" path="res://shaders/pp_bar_fill_progress.gdshader" id="3_pjvnb"]
+[ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="4_mt53v"]
+[ext_resource type="Texture2D" uid="uid://ms1xgd2nlenx" path="res://textures/battle/pp_bar/tp_max.png" id="4_pl3ei"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_srvhr"]
+shader = ExtResource("3_pjvnb")
+shader_parameter/base_color = Color(0.8631686, 0.79917675, 0.10516197, 1)
+shader_parameter/max_color = Color(1, 1, 1, 1)
+shader_parameter/fill = 0.0
+
+[node name="PPBar" type="Node2D"]
+script = ExtResource("1_pl3ei")
+
+[node name="BG" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ld0bs")
+
+[node name="Fill" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_srvhr")
+texture = ExtResource("2_mt53v")
+
+[node name="PP" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-36.000004, -13)
+scale = Vector2(2.04, 2.04)
+texture = ExtResource("3_dose5")
+
+[node name="Number" type="Label" parent="."]
+texture_filter = 1
+offset_left = -53.0
+offset_right = -13.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("4_mt53v")
+theme_override_font_sizes/font_size = 41
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Percent" type="Label" parent="Number"]
+texture_filter = 1
+layout_mode = 0
+offset_top = 38.0
+offset_right = 40.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("4_mt53v")
+theme_override_font_sizes/font_size = 41
+text = "%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PPMax" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-35, 29)
+scale = Vector2(1.575, 1.575)
+texture = ExtResource("4_pl3ei")

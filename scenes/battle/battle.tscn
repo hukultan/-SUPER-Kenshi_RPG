@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://capgc36d2hoqe"]
+
+[node name="Battle" type="Node2D"]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Node2D3" type="Node2D" parent="."]
