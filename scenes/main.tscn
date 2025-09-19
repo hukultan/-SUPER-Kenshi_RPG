@@ -133,7 +133,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("8_jbj1t")
 theme_override_font_sizes/font_size = 31
-text = "Version: -0.0.2 pre-prototype (Thu Jul 31 21:47:26 2025) 
+text = "Version: -0.0.2 pre-prototype (Date:Thu Sep 18)
 Dont share this to anyone else!"
 horizontal_alignment = 1
 
