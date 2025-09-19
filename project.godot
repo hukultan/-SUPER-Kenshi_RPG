@@ -11,6 +11,8 @@ config_version=5
 [application]
 
 config/name="super kenshi rpg"
+config/description="rpg for kenshi"
+config/version="Version: -0.0.2 pre-prototype"
 config/tags=PackedStringArray("2d")
 run/main_scene="uid://2or36gkldphs"
 config/features=PackedStringArray("4.5", "Forward Plus")

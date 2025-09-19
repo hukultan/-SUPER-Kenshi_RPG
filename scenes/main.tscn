@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://2or36gkldphs"]
+[gd_scene load_steps=12 format=3 uid="uid://2or36gkldphs"]
 
 [ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/main.gd" id="1_85g3d"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="3_ya4ey"]
+[ext_resource type="Theme" uid="uid://cu0i3br8dpd0r" path="res://resources/theme/main_theme.tres" id="4_choun"]
 [ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/ui/text_rotate.gd" id="4_eb6dy"]
 [ext_resource type="Script" uid="uid://b7mjykrmg1o0u" path="res://scripts/ui/control.gd" id="5_trceg"]
 [ext_resource type="FontFile" uid="uid://ciapw41rsqeok" path="res://resources/font/COMICZ.TTF" id="6_a8y0u"]
@@ -11,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://7viarjhqu3d2" path="res://resources/audio/quit.ogg" id="9_muem4"]
 
 [sub_resource type="TextMesh" id="TextMesh_04qyp"]
-text = "need help pls im suffering"
+text = "if youre reading this you dumb "
 font = ExtResource("3_ya4ey")
 font_size = 22
 
@@ -71,6 +72,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 646.0
+theme = ExtResource("4_choun")
 script = ExtResource("5_trceg")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
@@ -131,7 +133,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("8_jbj1t")
 theme_override_font_sizes/font_size = 31
-text = "Version: -0.0.3 pre-prototype (Thu Jul 31 21:47:26 2025) 
+text = "Version: -0.0.2 pre-prototype (Thu Jul 31 21:47:26 2025) 
 Dont share this to anyone else!"
 horizontal_alignment = 1
 

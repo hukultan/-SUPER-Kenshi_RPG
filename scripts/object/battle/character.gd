@@ -55,7 +55,7 @@ func _ready() -> void:
 		return
 	sprite = get_node(main_sprite)
 	mat = ShaderMaterial.new()
-	mat.shader = preload("res://shaders/new_shader.gdshader")
+	mat.shader = preload("uid://135xyxyg08cc")
 	sprite.material = mat
 	await get_tree().create_timer(randf_range(0.0, 0.6)).timeout
 	do_animation(Animations.IDLE)
