@@ -59,6 +59,7 @@ scaling_3d_scale = 0.48
 anisotropic_filtering_level = 0
 oversampling = false
 size = Vector2i(853, 398)
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Node3D/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8056)
@@ -140,7 +141,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("8_jbj1t")
 theme_override_font_sizes/font_size = 31
-text = "Version: -0.0.2 pre-prototype (Date:Thu Sep 18)
+text = "Version: -0.0.1 pre-prototype (Date:Sun Sep 28)
 Dont share this to anyone else!"
 horizontal_alignment = 1
 
