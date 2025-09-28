@@ -1,5 +1,5 @@
-extends Node2D
 class_name Character
+extends Node2D
 
 enum Animations {
 	IDLE, PREP_ATTACK, PREP_ACT, PREP_ITEM, PREP_SPARE, ATTACK, ACT, USE_ITEM, SPARE, DEFEND, FAINT, REVIVE
@@ -43,12 +43,12 @@ var shake := 0.0
 ## The list of default spells the character can use. Only for characters with do_magic set to true.
 @export var spells: Array[Spell] = []
 
-signal health_changed(p_new_health: int)
-signal act_finished
-signal spell_finished
-signal item_used
-signal spare_finished
-signal faint_finished
+#signal health_changed(p_new_health: int)
+#signal act_finished
+#signal spell_finished
+#signal item_used
+#signal spare_finished
+#signal faint_finished
 
 func _ready() -> void:
 	if !main_sprite:

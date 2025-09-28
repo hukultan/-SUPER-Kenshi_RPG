@@ -2,9 +2,9 @@ extends Node
 
 
 signal pp_changed
-signal enemy_killed
-signal display_text(p_text: String, p_requires_input: bool)
-signal text_finished
+#signal enemy_killed
+#signal display_text(p_text: String, p_requires_input: bool)
+#signal text_finished
 enum {
 	FIGHT, ACT, ITEM, SPARE, DEFEND,
 }
@@ -35,11 +35,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func change_to_scene(scene_path: String, fade : bool = true) -> void:
 	if fade:
-		PostProcessing.fade_out()
+		PostProcessing.fade_out(0.1)
 		get_tree().paused = true
 		await PostProcessing.fade_finished
 		get_tree().change_scene_to_file(scene_path)
-		PostProcessing.fade_in()
+		PostProcessing.fade_in(0.5)
 		await PostProcessing.fade_finished
 		get_tree().paused = false
 	else:

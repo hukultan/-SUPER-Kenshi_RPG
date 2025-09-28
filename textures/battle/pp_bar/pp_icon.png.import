@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh40jx7natsxn"
-path="res://.godot/imported/tp_bar_sprite_bg.png-a677fbd45743b3c23a89ea9591575661.ctex"
+uid="uid://clpqphj5ovuim"
+path="res://.godot/imported/pp_icon.png-34e2bf59cb791deb1ef54df280e44d43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/battle/pp_bar/tp_bar_sprite_bg.png"
-dest_files=["res://.godot/imported/tp_bar_sprite_bg.png-a677fbd45743b3c23a89ea9591575661.ctex"]
+source_file="res://textures/battle/pp_bar/pp_icon.png"
+dest_files=["res://.godot/imported/pp_icon.png-34e2bf59cb791deb1ef54df280e44d43.ctex"]
 
 [params]
 

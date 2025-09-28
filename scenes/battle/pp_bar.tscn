@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://becy5tvguiche"]
 
-[ext_resource type="Texture2D" uid="uid://bh40jx7natsxn" path="res://textures/battle/pp_bar/tp_bar_sprite_bg.png" id="1_ld0bs"]
+[ext_resource type="Texture2D" uid="uid://bh40jx7natsxn" path="res://textures/battle/pp_bar/pp_bar_sprite_bg.png" id="1_ld0bs"]
 [ext_resource type="Script" uid="uid://dkyadmhopfslp" path="res://scripts/object/battle/pp_bar_filling.gd" id="1_pl3ei"]
-[ext_resource type="Texture2D" uid="uid://c0aex5gvjaq03" path="res://textures/battle/pp_bar/tp_bar_sprite_mask.png" id="2_mt53v"]
-[ext_resource type="Texture2D" uid="uid://dftojhsca6i52" path="res://textures/battle/pp_bar/tp_icon.png" id="3_dose5"]
+[ext_resource type="Texture2D" uid="uid://c0aex5gvjaq03" path="res://textures/battle/pp_bar/pp_bar_sprite_mask.png" id="2_mt53v"]
 [ext_resource type="Shader" uid="uid://8el0m2th41kp" path="res://shaders/pp_bar_fill_progress.gdshader" id="3_pjvnb"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="4_mt53v"]
-[ext_resource type="Texture2D" uid="uid://ms1xgd2nlenx" path="res://textures/battle/pp_bar/tp_max.png" id="4_pl3ei"]
+[ext_resource type="Texture2D" uid="uid://ms1xgd2nlenx" path="res://textures/battle/pp_bar/pp_max.png" id="4_pl3ei"]
+[ext_resource type="Texture2D" uid="uid://clpqphj5ovuim" path="res://textures/battle/pp_bar/pp_icon.png" id="5_pl3ei"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_srvhr"]
 shader = ExtResource("3_pjvnb")
@@ -30,7 +30,7 @@ texture = ExtResource("2_mt53v")
 texture_filter = 1
 position = Vector2(-36.000004, -13)
 scale = Vector2(2.04, 2.04)
-texture = ExtResource("3_dose5")
+texture = ExtResource("5_pl3ei")
 
 [node name="Number" type="Label" parent="."]
 texture_filter = 1

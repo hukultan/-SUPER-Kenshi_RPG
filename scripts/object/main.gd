@@ -4,7 +4,7 @@ extends Node2D
 @export var funi_alert: bool = true
 
 func _ready() -> void:
-	PostProcessing.fade_in()
+	PostProcessing.fade_in(0.5)
 	# Do the pop-up alert window
 	# Why? I dont freakyng know
 	if funi_alert:

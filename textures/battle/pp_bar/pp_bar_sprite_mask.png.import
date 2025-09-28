@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0aex5gvjaq03"
-path="res://.godot/imported/tp_bar_sprite_mask.png-6ee2f62eb14840869db4e15c031f2e90.ctex"
+path="res://.godot/imported/pp_bar_sprite_mask.png-a25c9a208ce5a27646cdc8710b7790a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/battle/pp_bar/tp_bar_sprite_mask.png"
-dest_files=["res://.godot/imported/tp_bar_sprite_mask.png-6ee2f62eb14840869db4e15c031f2e90.ctex"]
+source_file="res://textures/battle/pp_bar/pp_bar_sprite_mask.png"
+dest_files=["res://.godot/imported/pp_bar_sprite_mask.png-a25c9a208ce5a27646cdc8710b7790a1.ctex"]
 
 [params]
 

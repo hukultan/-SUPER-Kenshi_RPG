@@ -1,5 +1,5 @@
-extends Resource
 class_name Spell
+extends Resource
 
 @export var title := "Nothing"
 @export_multiline var text := "  * Nothing happened."

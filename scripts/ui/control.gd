@@ -1,16 +1,25 @@
 extends Control
 
+
+## Plays audio after pressing the quit button
 @export var wanna_hear_my_voice: bool = false
+## Opens a pop up window using your browser when the program closes
+@export var open_browser: bool = false
+## Set the scene to change
 @export var next_scene: PackedScene
+
 @onready var node_3d: Node3D = %Node3D
 @onready var margin_container: MarginContainer = $MarginContainer
 
 func _on_play_button_pressed() -> void:
-	# When we ambataplay
-	PostProcessing.fade_out()
-	await PostProcessing.fade_finished
-	PostProcessing.fade_in()
-	get_tree().change_scene_to_file("res://scenes/map_test.tscn")
+	if next_scene != null:
+		# When we ambataplay
+		PostProcessing.fade_out(0.6)
+		await PostProcessing.fade_finished
+		PostProcessing.fade_in(0.2)
+		get_tree().change_scene_to_packed(next_scene)
+	else: printerr("The next scene variable is null!")
+	
 	# I dont know why i wrote this but it ties the entire project
 	# If you delete the entire thing will become unplayable and it will ruin your /
 	# premature career, wanna know? just hit CTRL + V when you play it
@@ -25,8 +34,9 @@ func _on_quit_button_pressed() -> void:
 		await $QuitAudio.finished
 	node_3d.process_mode = node_3d.PROCESS_MODE_DISABLED
 	margin_container.process_mode = margin_container.PROCESS_MODE_DISABLED
-	# funny link that opens your broser automatically
-	OS.shell_open("https://www.youtube.com/watch?v=X2WH8mHJnhM&list=RDX2WH8mHJnhM")
+	if open_browser:
+		# funny link that opens your broser automatically
+		OS.shell_open("https://www.youtube.com/watch?v=X2WH8mHJnhM&list=RDX2WH8mHJnhM")
 	# free robucks 100% true not fake wont close the program trust bro
 	Quit.quit()
 

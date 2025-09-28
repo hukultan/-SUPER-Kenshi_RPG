@@ -136,7 +136,6 @@ radius = 38.026176
 scale = Vector2(0.661, 0.531)
 collision_mask = 16
 motion_mode = 1
-wall_min_slide_angle = 0.0
 script = ExtResource("1_5cfjx")
 animated_sprite = NodePath("AnimatedSprite2D")
 state_machine = NodePath("StateMachine")
@@ -163,3 +162,7 @@ script = ExtResource("4_b1bl1")
 unique_name_in_owner = true
 script = ExtResource("6_fcgth")
 move_speed = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.285, 1.285)
+position_smoothing_enabled = true

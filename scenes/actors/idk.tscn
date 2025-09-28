@@ -118,7 +118,7 @@ state_machine = NodePath("StateMachine")
 texture_filter = 1
 scale = Vector2(0.661157, 0.530612)
 sprite_frames = SubResource("SpriteFrames_b1bl1")
-animation = &"idle_down"
+animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 20)
@@ -135,3 +135,7 @@ script = ExtResource("3_0lrh6")
 unique_name_in_owner = true
 script = ExtResource("4_fxbju")
 move_speed = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.285, 1.285)
+position_smoothing_enabled = true
