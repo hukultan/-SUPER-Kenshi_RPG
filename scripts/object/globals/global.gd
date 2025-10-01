@@ -1,6 +1,5 @@
 extends Node
 
-
 signal pp_changed
 #signal enemy_killed
 #signal display_text(p_text: String, p_requires_input: bool)
@@ -15,7 +14,6 @@ var pp : float = 0.0:
 	set(p_pp):
 		pp = minf(p_pp, 250.0)
 		pp_changed.emit()
-
 
 var pp_coefficient := 1
 var displaying_text := false

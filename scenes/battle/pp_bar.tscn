@@ -10,9 +10,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_srvhr"]
 shader = ExtResource("3_pjvnb")
-shader_parameter/base_color = Color(0.8631686, 0.79917675, 0.10516197, 1)
+shader_parameter/base_color = Color(0.8582588, 0.6520155, 0.10696676, 1)
 shader_parameter/max_color = Color(1, 1, 1, 1)
-shader_parameter/fill = 0.0
+shader_parameter/fill = 0.5
 
 [node name="PPBar" type="Node2D"]
 script = ExtResource("1_pl3ei")

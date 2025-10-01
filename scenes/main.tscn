@@ -21,7 +21,6 @@ font_size = 22
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_85g3d")
-funi_alert = false
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -80,6 +79,7 @@ offset_right = 1150.0
 offset_bottom = 646.0
 theme = ExtResource("4_choun")
 script = ExtResource("5_trceg")
+open_browser = true
 next_scene = ExtResource("6_ya4ey")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
