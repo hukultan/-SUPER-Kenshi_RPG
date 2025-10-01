@@ -1,8 +1,7 @@
 extends Control
 
-
-const KENSHI := preload("uid://dmftsli26rx26")
-const HUMAN := preload("uid://bj33lek3nolv5")
+@export var spawn_point: Marker2D
+@export var entities: Array[PackedScene]
 
 @onready var character_selection_panel: PanelContainer = $CharacterSelectionPanel
 
@@ -14,12 +13,12 @@ func _on_back_button_pressed() -> void:
 
 
 func _on_kenshi_button_pressed() -> void:
-	_spawn_entity(KENSHI)
+	_spawn_entity(entities[0])
 
 func _on_human_button_pressed() -> void:
-	_spawn_entity(HUMAN)
+	_spawn_entity(entities[1])
 
 func _spawn_entity(entity: PackedScene) -> void:
 	var child_node := entity.instantiate()
-	$"../../SpawnPoint".add_child(child_node)
+	spawn_point.add_child(child_node)
 	if character_selection_panel.visible: character_selection_panel.hide()

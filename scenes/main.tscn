@@ -48,6 +48,7 @@ offset_left = -16.256
 offset_top = -21.216
 offset_right = -8.82404
 offset_bottom = -78.112
+grow_horizontal = 0
 scale = Vector2(1.017, 1.22)
 mouse_filter = 2
 stretch = true
@@ -89,11 +90,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
+theme_override_constants/margin_top = 130
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="PlayButton" type="Button" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PlayButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -101,7 +107,7 @@ theme_override_fonts/font = ExtResource("6_a8y0u")
 theme_override_font_sizes/font_size = 36
 text = "ambataplay :)"
 
-[node name="QuitButton" type="Button" parent="Control/MarginContainer"]
+[node name="QuitButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -121,18 +127,23 @@ texture_hover = ExtResource("8_choun")
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.158
-anchor_top = -0.281
-anchor_right = 0.815
-offset_left = 6.04
-offset_top = -15.28
-offset_right = -4.8
-offset_bottom = -3.0
+anchor_left = 0.083000004
+anchor_top = -0.53300005
+anchor_right = 0.92800003
+offset_left = 0.03999901
+offset_top = -0.03998947
+offset_right = 5.6399994
+offset_bottom = 4.000004
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/bold_font = ExtResource("8_jbj1t")
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[b][shake][rainbow]Kenshi's channel[/rainbow][/shake][b]"
 fit_content = true
 scroll_active = false
+context_menu_enabled = true
+horizontal_alignment = 1
 
 [node name="VersionText" type="Label" parent="Control/MarginContainer"]
 texture_filter = 1
@@ -141,8 +152,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("8_jbj1t")
 theme_override_font_sizes/font_size = 31
-text = "Version: -0.0.1 pre-prototype (Date:Sun Sep 28)
-Dont share this to anyone else!"
+text = "Version: -0.0.1/2 pre-prototype (Date: Tuesday Sep 30)
+Don't share this to anyone else!"
 horizontal_alignment = 1
 
 [node name="QuitAudio" type="AudioStreamPlayer" parent="Control"]
@@ -150,6 +161,6 @@ stream = ExtResource("9_muem4")
 pitch_scale = 0.97
 bus = &"SFX"
 
-[connection signal="pressed" from="Control/MarginContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/QuitButton" to="Control" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitButton" to="Control" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/YoutubeButton" to="Control" method="_on_youtube_button_pressed"]

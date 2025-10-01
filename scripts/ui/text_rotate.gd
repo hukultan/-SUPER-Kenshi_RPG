@@ -3,28 +3,29 @@ extends MeshInstance3D
 ## Do you want the mesh to change color?
 @export var color_enabled: bool = true
 # the rotation speed for the rotating animation
-const ROTATE_SPEED: float = 0.16
+var ROTATE_SPEED: float = randf_range(0.15, 0.36)
 # some strings that will appear in the texxt mesh
 var random_text: Array[StringName] = ["idk what to type", "rpg about kenshi yeey", \
 "Dev build!", "Viva el trp!!1", "homero va sa recoltalrte?", "DESTROY THIS FUCKING PROGRAM", \
 "Minian (its not a typo thast the name)", "Kenshi say gex", \
 "Oh hi! Welcome to my game (this is totally not a baldi reference)", "Dos equipos son uno rojo y otro azul",\
 "guys pls stop slaving me i already did a lot for this", "get me out of the basement", "banana", "Black man twerking",\
-"Heres your progress now let me see my family",]
+"Heres your progress now let me see my family", "Work In Proggres"]
 var tween: Tween 
 
 func _ready() -> void:
+	randomize()
 	# get the mesh resource
 	var text_mesh := self.mesh
 	# set a random string from the variable and set it to the mesh
-	text_mesh.text = random_text[randi() % random_text.size()]
+	text_mesh.text = random_text.pick_random()
 	pass
 
 func _process(delta: float) -> void:
 	# Rotate the model every frame to get that kool effect
 	await get_tree().physics_frame
 	self.rotate_y(ROTATE_SPEED * delta)
-	_change_material_color(0.5)
+	_change_material_color(0.6)
 	pass
 
 func _change_material_color(time_speed: float) -> void:

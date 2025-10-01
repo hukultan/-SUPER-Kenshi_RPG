@@ -1,9 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6wo8j01gjq01"]
+[gd_scene load_steps=6 format=3 uid="uid://b6wo8j01gjq01"]
 
 [ext_resource type="Script" uid="uid://d344ykyxdqo5y" path="res://scripts/ui/fade.gd" id="1_nukjo"]
+[ext_resource type="Script" uid="uid://t8y7bcc6xob6" path="res://shaders/compositor_effects/compositor_effects.gd" id="2_76d3x"]
+
+[sub_resource type="Environment" id="Environment_85vtu"]
+background_mode = 3
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_yihkf"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = false
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("2_76d3x")
+shader_code = "float gray = color.r * 0.2185 + color.g * 0.71421 + color.b * 0.0921;
+color.rgb = vec3(gray);"
+metadata/_custom_type_script = "uid://t8y7bcc6xob6"
+
+[sub_resource type="Compositor" id="Compositor_vmn2j"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_yihkf")])
 
 [node name="Fade" type="Node2D"]
 script = ExtResource("1_nukjo")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 top_level = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_85vtu")
+compositor = SubResource("Compositor_vmn2j")
