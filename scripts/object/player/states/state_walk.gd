@@ -3,6 +3,7 @@ extends State
 
 @export var move_speed: float = 250.0
 @onready var idle: State_Idle = %Idle
+@onready var run: State_Run = %Run
 
 
 func _enter() -> void:
@@ -21,5 +22,6 @@ func process_frame(_delta: float) -> State:
 func process_physics(_delta: float) -> State:
 	return null
 
-func _handle_input(_event: InputEvent) -> State:
+func _handle_input(event: InputEvent) -> State:
+	if event.is_action_pressed("run"): return run
 	return null

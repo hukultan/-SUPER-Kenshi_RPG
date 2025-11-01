@@ -14,16 +14,13 @@ extends Control
 func _on_play_button_pressed() -> void:
 	if next_scene != null:
 		# When we ambataplay
-		PostProcessing.fade_out(0.6)
-		await PostProcessing.fade_finished
-		PostProcessing.fade_in(0.2)
 		get_tree().change_scene_to_packed(next_scene)
 	else: printerr("The next scene variable is null!")
 	
 	# I dont know why i wrote this but it ties the entire project
 	# If you delete the entire thing will become unplayable and it will ruin your /
 	# premature career, wanna know? just hit CTRL + V when you play it
-	DisplayServer.clipboard_set("Kenshi is a cutie gooner")
+	#DisplayServer.clipboard_set("Kenshi is a cutie gooner")
 
 func _on_quit_button_pressed() -> void:
 	if wanna_hear_my_voice:
@@ -43,3 +40,8 @@ func _on_quit_button_pressed() -> void:
 func _on_youtube_button_pressed() -> void:
 	# Send the poor soul who touches this button to hell
 	OS.shell_open("https://www.youtube.com/@ilovekenshi")
+
+
+func _on__pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/easter_time.tscn")
+	pass # Replace with function body.

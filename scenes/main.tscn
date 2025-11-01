@@ -1,16 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://2or36gkldphs"]
+[gd_scene load_steps=15 format=3 uid="uid://2or36gkldphs"]
 
 [ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/main.gd" id="1_85g3d"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="3_ya4ey"]
 [ext_resource type="Theme" uid="uid://cu0i3br8dpd0r" path="res://resources/theme/main_theme.tres" id="4_choun"]
-[ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/ui/text_rotate.gd" id="4_eb6dy"]
-[ext_resource type="Script" uid="uid://b7mjykrmg1o0u" path="res://scripts/ui/control.gd" id="5_trceg"]
+[ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/object/ui/text_rotate.gd" id="4_eb6dy"]
+[ext_resource type="Script" uid="uid://b7mjykrmg1o0u" path="res://scripts/object/ui/control.gd" id="5_trceg"]
 [ext_resource type="FontFile" uid="uid://ciapw41rsqeok" path="res://resources/font/COMICZ.TTF" id="6_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://o1shc5fqyvwn" path="res://scenes/map_test.tscn" id="6_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://gmos3clovqoi" path="res://textures/yt_logo_tex.png" id="7_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://0jlaxi5nwsuc" path="res://textures/yt_logo_focus_tex.png" id="8_choun"]
+[ext_resource type="Texture2D" uid="uid://gmos3clovqoi" path="res://textures/other/yt_logo_tex.png" id="7_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://0jlaxi5nwsuc" path="res://textures/other/yt_logo_focus_tex.png" id="8_choun"]
 [ext_resource type="FontFile" uid="uid://cxs7cd6vuqdpq" path="res://resources/font/COMICBD.TTF" id="8_jbj1t"]
 [ext_resource type="AudioStream" uid="uid://7viarjhqu3d2" path="res://resources/audio/quit.ogg" id="9_muem4"]
+[ext_resource type="Texture2D" uid="uid://b0xtfy74e7f0g" path="res://textures/other/misc/voi.jpg" id="11_eb6dy"]
 
 [sub_resource type="TextMesh" id="TextMesh_04qyp"]
 text = "if your reading this yr'oue st*pid"
@@ -18,9 +19,11 @@ font = ExtResource("3_ya4ey")
 font_size = 22
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_choun"]
+emission = Color(0.94269544, 0.9210767, 0.95183223, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_85g3d")
+funi_alert = false
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -39,13 +42,12 @@ script = ExtResource("4_eb6dy")
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Node3D"]
 texture_filter = 1
 anchors_preset = -1
-anchor_left = 0.153
-anchor_top = 0.042
-anchor_right = 0.887
+anchor_top = 0.009000001
+anchor_right = 1.0
 anchor_bottom = 0.744
-offset_left = -16.256
-offset_top = -21.216
-offset_right = -8.82404
+offset_left = -1.0
+offset_top = 0.16799974
+offset_right = -9.44043
 offset_bottom = -78.112
 grow_horizontal = 0
 scale = Vector2(1.017, 1.22)
@@ -58,7 +60,7 @@ handle_input_locally = false
 scaling_3d_scale = 0.48
 anisotropic_filtering_level = 0
 oversampling = false
-size = Vector2i(853, 398)
+size = Vector2i(1143, 398)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Node3D/SubViewportContainer/SubViewport"]
@@ -68,7 +70,6 @@ fov = 50.3944
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.45402, -0.471577, 0.755964, -0.20945, 0.768188, 0.604995, 1.13113, 3.7494, 0)
-light_energy = 2.548
 light_cull_mask = 4294966273
 sky_mode = 1
 
@@ -77,9 +78,9 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 646.0
+mouse_filter = 1
 theme = ExtResource("4_choun")
 script = ExtResource("5_trceg")
-open_browser = true
 next_scene = ExtResource("6_ya4ey")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
@@ -152,9 +153,25 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("8_jbj1t")
 theme_override_font_sizes/font_size = 31
-text = "Version: -0.0.1/2 pre-prototype (Date: Tuesday Sep 30)
+text = "Version: -0.0.1/1 pre-prototype (Date: Saturday Nov 01)
 Don't share this to anyone else!"
 horizontal_alignment = 1
+
+[node name="👀" type="TextureButton" parent="Control"]
+editor_description = "just ignore me pls 👀👀👀👀👀"
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -213.0
+offset_bottom = 187.42473
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("11_eb6dy")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="QuitAudio" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("9_muem4")
@@ -164,3 +181,4 @@ bus = &"SFX"
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitButton" to="Control" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/YoutubeButton" to="Control" method="_on_youtube_button_pressed"]
+[connection signal="pressed" from="Control/👀" to="Control" method="_on__pressed"]

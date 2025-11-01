@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# Rotate the model every frame to get that kool effect
-	await get_tree().physics_frame
+	await get_tree().process_frame
 	self.rotate_y(ROTATE_SPEED * delta)
 	_change_material_color(0.6)
 	pass

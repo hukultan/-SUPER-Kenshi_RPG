@@ -5,7 +5,7 @@ extends CharacterBody2D
 var direction : Vector2 = Vector2.DOWN
 var cardinal_dir: Vector2 = Vector2.ZERO
 # Node path references to make things easier
-@export var animated_sprite: AnimatedSprite2D 
+@export var sprite_frames: AnimatedSprite2D 
 @export var state_machine: PlayerStateMachine
 
 
@@ -36,14 +36,14 @@ func set_direction() -> bool:
 	if new_dir == cardinal_dir:
 		return false
 	cardinal_dir = new_dir
-	animated_sprite.scale.x = -0.661 if cardinal_dir == Vector2.LEFT else 0.661
+	sprite_frames.scale.x = -0.661 if cardinal_dir == Vector2.LEFT else 0.661
 	return true
 
 func update_animation(state: String) -> void:
 	# Get the name of the animation with a direction
 	# To make the animations work, you have to create them from a \
 	# sprite sheet and name it one of the directions
-	animated_sprite.play(state + "_" + anim_direction())
+	sprite_frames.play(state + "_" + anim_direction())
 	pass
 
 func anim_direction() -> String:

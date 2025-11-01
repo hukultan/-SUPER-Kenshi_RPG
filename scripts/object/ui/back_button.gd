@@ -6,10 +6,19 @@ extends Control
 @onready var character_selection_panel: PanelContainer = $CharacterSelectionPanel
 
 
+func _ready() -> void:
+	PostProcessing.fade_out(0.0)
+	await PostProcessing.fade_finished
+	PostProcessing.fade_in(0.6)
+	pass
+
+
 func _on_back_button_pressed() -> void:
-	PostProcessing.fade_out(0.3)
+	PostProcessing.fade_out(0.4)
+	if $"../CanvasLayer".visible: $"../CanvasLayer".hide()
 	await PostProcessing.fade_finished
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	PostProcessing.fade_out(0.2)
 
 
 func _on_kenshi_button_pressed() -> void:

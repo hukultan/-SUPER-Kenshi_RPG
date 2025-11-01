@@ -25,13 +25,13 @@ config/icon="uid://chs146a2vhbf6"
 
 Quit="*res://scripts/utility/quit.gd"
 PostProcessing="*res://scenes/fade.tscn"
-Global="*res://scripts/object/globals/global.gd"
+Global="*res://scripts/const/global.gd"
 
 [display]
 
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://buy04n83arvup"
-mouse_cursor/custom_image_hotspot=Vector2(0.9, 0)
+mouse_cursor/custom_image_hotspot=Vector2(100, 10)
 
 [file_customization]
 

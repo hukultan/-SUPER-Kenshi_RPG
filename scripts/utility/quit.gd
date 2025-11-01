@@ -3,7 +3,7 @@ extends Node
 
 func quit() -> void:
 	# Closes the program
-	get_tree().quit(0)
+	get_tree().call_deferred("quit")
 
 func _input(event: InputEvent) -> void:
 	# Closes the game by being called from a key press

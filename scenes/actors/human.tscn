@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bj33lek3nolv5"]
+[gd_scene load_steps=17 format=3 uid="uid://bj33lek3nolv5"]
 
 [ext_resource type="Script" uid="uid://dv7ib8l75nil3" path="res://scripts/object/player/physics/kenshi.gd" id="1_5ka3i"]
 [ext_resource type="Texture2D" uid="uid://bhuxwjw0p4vng" path="res://textures/sprite_sheets/actors/actor_idk/idk_sheet.png" id="2_8aupm"]
 [ext_resource type="Script" uid="uid://bfwg8qqc340av" path="res://scripts/object/player/player_state_machine.gd" id="2_i65in"]
 [ext_resource type="Script" uid="uid://cv0lw5tg7vkei" path="res://scripts/object/player/states/state_idle.gd" id="3_0lrh6"]
 [ext_resource type="Script" uid="uid://jgkq4na8nubf" path="res://scripts/object/player/states/state_walk.gd" id="4_fxbju"]
+[ext_resource type="Script" uid="uid://crvrwnx88x1aj" path="res://scripts/object/player/states/state_run.gd" id="6_s1i8r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5w0r3"]
 atlas = ExtResource("2_8aupm")
@@ -107,11 +108,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ru3cj"]
 radius = 34.1321
 
-[node name="IDK" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite", "state_machine")]
+[node name="Human" type="CharacterBody2D" node_paths=PackedStringArray("sprite_frames", "state_machine")]
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_5ka3i")
-animated_sprite = NodePath("AnimatedSprite2D")
+sprite_frames = NodePath("AnimatedSprite2D")
 state_machine = NodePath("StateMachine")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -135,6 +136,10 @@ script = ExtResource("3_0lrh6")
 unique_name_in_owner = true
 script = ExtResource("4_fxbju")
 move_speed = 100.0
+
+[node name="Run" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("6_s1i8r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.285, 1.285)
