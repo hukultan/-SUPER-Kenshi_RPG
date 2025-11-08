@@ -41,16 +41,16 @@ script = ExtResource("4_eb6dy")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Node3D"]
 texture_filter = 1
+custom_minimum_size = Vector2(829.196, 344.371)
 anchors_preset = -1
 anchor_top = 0.009000001
 anchor_right = 1.0
 anchor_bottom = 0.744
-offset_left = -1.0
-offset_top = 0.16799974
-offset_right = -9.44043
-offset_bottom = -78.112
+offset_top = -5.8320003
+offset_right = -8.439941
+offset_bottom = -84.112
 grow_horizontal = 0
-scale = Vector2(1.017, 1.22)
+scale = Vector2(1.007, 1.208)
 mouse_filter = 2
 stretch = true
 
@@ -64,9 +64,9 @@ size = Vector2i(1143, 398)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Node3D/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8056)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.536245)
 cull_mask = 1047553
-fov = 50.3944
+fov = 55.3
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.45402, -0.471577, 0.755964, -0.20945, 0.768188, 0.604995, 1.13113, 3.7494, 0)
@@ -99,6 +99,7 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 9
 
 [node name="PlayButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -153,8 +154,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("8_jbj1t")
 theme_override_font_sizes/font_size = 31
-text = "Version: -0.0.1/1 pre-prototype (Date: Saturday Nov 01)
-Don't share this to anyone else!"
+text = "Version: -0.0.1/0 pre-prototype (Date: Saturday Nov 08)
+Share this to anyone else!"
 horizontal_alignment = 1
 
 [node name="👀" type="TextureButton" parent="Control"]

@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://capgc36d2hoqe"]
+[gd_scene load_steps=2 format=3 uid="uid://capgc36d2hoqe"]
+
+[ext_resource type="Script" uid="uid://tsb2611tlj77" path="res://scripts/object/battle/battle.gd" id="1_7gynk"]
 
 [node name="Battle" type="Node2D"]
+script = ExtResource("1_7gynk")
 
 [node name="Characters" type="Node2D" parent="."]
 

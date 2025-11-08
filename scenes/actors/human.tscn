@@ -70,9 +70,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_stq2e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5w0r3")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_dt5d3")
 }],
 "loop": true,
@@ -93,9 +90,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kuqkf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8aupm")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1o0cd")
@@ -119,7 +113,7 @@ state_machine = NodePath("StateMachine")
 texture_filter = 1
 scale = Vector2(0.661157, 0.530612)
 sprite_frames = SubResource("SpriteFrames_b1bl1")
-animation = &"walk_up"
+animation = &"idle_side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 20)

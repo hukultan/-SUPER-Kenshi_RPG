@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://becy5tvguiche"]
 
 [ext_resource type="Texture2D" uid="uid://bh40jx7natsxn" path="res://textures/battle/pp_bar/pp_bar_sprite_bg.png" id="1_ld0bs"]
-[ext_resource type="Script" uid="uid://dkyadmhopfslp" path="res://scripts/object/battle/pp_bar_filling.gd" id="1_pl3ei"]
+[ext_resource type="Script" uid="uid://dkyadmhopfslp" path="res://scripts/object/ui/battle_ui/pp_bar_filling.gd" id="1_pl3ei"]
 [ext_resource type="Texture2D" uid="uid://c0aex5gvjaq03" path="res://textures/battle/pp_bar/pp_bar_sprite_mask.png" id="2_mt53v"]
 [ext_resource type="Shader" uid="uid://8el0m2th41kp" path="res://shaders/pp_bar_fill_progress.gdshader" id="3_pjvnb"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="4_mt53v"]

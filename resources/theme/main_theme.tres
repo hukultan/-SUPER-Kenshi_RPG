@@ -1,9 +1,18 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cu0i3br8dpd0r"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cu0i3br8dpd0r"]
 
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="1_rjbnf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70gfe"]
 bg_color = Color(0.21925783, 0.15883383, 0.11147218, 0.9764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtx1y"]
+bg_color = Color(0.32982492, 0.24827471, 0.17767993, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.51837623, 0.39753777, 0.2762939, 1)
+border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xah2a"]
 bg_color = Color(0.360932, 0.27161875, 0.20187286, 1)
@@ -23,9 +32,14 @@ border_color = Color(0.32172796, 0.321728, 0.32172775, 1)
 border_blend = true
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ywy2"]
+bg_color = Color(0.26202124, 0.45020357, 0.45020357, 0.3764706)
+
 [resource]
 Button/font_sizes/font_size = 26
 Button/fonts/font = ExtResource("1_rjbnf")
 Button/styles/disabled = SubResource("StyleBoxFlat_70gfe")
+Button/styles/hover = SubResource("StyleBoxFlat_jtx1y")
 Button/styles/normal = SubResource("StyleBoxFlat_xah2a")
 Button/styles/pressed = SubResource("StyleBoxFlat_rjbnf")
+Panel/styles/panel = SubResource("StyleBoxFlat_1ywy2")

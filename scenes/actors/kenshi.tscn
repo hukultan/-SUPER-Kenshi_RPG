@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmftsli26rx26"]
+[gd_scene load_steps=21 format=3 uid="uid://dmftsli26rx26"]
 
 [ext_resource type="Script" uid="uid://dv7ib8l75nil3" path="res://scripts/object/player/physics/kenshi.gd" id="1_5cfjx"]
 [ext_resource type="Texture2D" uid="uid://dia3ydu0ru7h1" path="res://textures/sprite_sheets/actors/actor_kenshi/ken_sheet_random.png" id="2_yvivp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cv0lw5tg7vkei" path="res://scripts/object/player/states/state_idle.gd" id="4_b1bl1"]
 [ext_resource type="Script" uid="uid://jgkq4na8nubf" path="res://scripts/object/player/states/state_walk.gd" id="6_fcgth"]
 [ext_resource type="Script" uid="uid://crvrwnx88x1aj" path="res://scripts/object/player/states/state_run.gd" id="7_52o55"]
+[ext_resource type="Script" uid="uid://jhn57ctxq3tc" path="res://scripts/object/player/states/state_blush.gd" id="8_r03vp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wumyj"]
 atlas = ExtResource("2_yvivp")
@@ -56,6 +57,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"blush_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wumyj")
+}],
+"loop": true,
+"name": &"blush_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wumyj")
+}],
+"loop": true,
+"name": &"blush_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -131,9 +148,7 @@ state_machine = NodePath("StateMachine")
 texture_filter = 1
 scale = Vector2(0.661, 0.531)
 sprite_frames = SubResource("SpriteFrames_b1bl1")
-animation = &"walk_side"
-frame = 1
-frame_progress = 0.94839936
+animation = &"blush_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.0257187, 16.949152)
@@ -142,9 +157,10 @@ shape = SubResource("CircleShape2D_ru3cj")
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_2xhpg")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("blush")]
 unique_name_in_owner = true
 script = ExtResource("4_b1bl1")
+blush = NodePath("../Blush")
 
 [node name="Walk" type="Node" parent="StateMachine"]
 unique_name_in_owner = true
@@ -154,6 +170,10 @@ move_speed = 100.0
 [node name="Run" type="Node" parent="StateMachine"]
 unique_name_in_owner = true
 script = ExtResource("7_52o55")
+
+[node name="Blush" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("8_r03vp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.285, 1.285)

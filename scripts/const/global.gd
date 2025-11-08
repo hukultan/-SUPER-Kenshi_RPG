@@ -1,11 +1,11 @@
 extends Node
 
 signal pp_changed
-#signal enemy_killed
+signal enemy_killed
 #signal display_text(p_text: String, p_requires_input: bool)
 #signal text_finished
 enum {
-	FIGHT, ACT, ITEM, SPARE, DEFEND,
+	FIGHT, ACT, ITEM, DEFEND,
 }
 const YELLOW := Color("#ffff00")
 const GREEN := Color("#00ff00")
@@ -17,6 +17,10 @@ var pp : float = 0.0:
 
 var pp_coefficient := 1
 var displaying_text := false
+var characters: Array[Character] = []
+var monsters: Array[Monster] = []
+var items: Array[Item] = []
+
 
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -45,3 +49,9 @@ func change_to_scene(scene_path: String, fade : bool = true) -> void:
 
 func wait_time(time: float) -> Signal:
 	return get_tree().create_timer(time).timeout
+
+func delete_monster(p_monster: Monster) -> void:
+	var monster_index := monsters.find(p_monster)
+	if monster_index != -1:
+		monsters[monster_index] = null
+	enemy_killed.emit()
