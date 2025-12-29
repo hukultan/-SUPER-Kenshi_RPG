@@ -40,8 +40,3 @@ func _on_quit_button_pressed() -> void:
 func _on_youtube_button_pressed() -> void:
 	# Send the poor soul who touches this button to hell
 	OS.shell_open("https://www.youtube.com/@ilovekenshi")
-
-
-func _on__pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/easter_time.tscn")
-	pass # Replace with function body.

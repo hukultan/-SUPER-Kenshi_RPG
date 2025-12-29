@@ -1,30 +1,26 @@
 class_name State_Run
 extends State
 
-# ATTENTION: Thanks for your attention :) 
-# Btw this actually works, now just saying. 
+@export var run_multiplier: float = 2.5
+@export var walk: State_Walk
+@export var idle: State_Idle
 
-# This value is used for increasing the player's velocity
-# It actually multiplies to the walking speed so be mindful \
-# when setting the values for this, it is reccomended to leave it at 2.5
-@export_range(1.5, 100.0, 0.5) var run_speed: float = 2.5
-@onready var walk: State_Walk = %Walk
+func enter() -> void:
+	actor.update_animation("walk")
 
-func _enter() -> void:
-	pass
-
-func _exit() -> void:
-	pass
-
-func process_frame(_delta: float) -> State:
-	if player_ref.direction == Vector2.ZERO: return walk
-	player_ref.velocity = player_ref.direction * walk.move_speed * run_speed
-	if player_ref.set_direction(): player_ref.update_animation("walk")
+func on_direction_changed(new_dir: Vector2) -> State:
+	if new_dir == Vector2.ZERO:
+		return idle
 	return null
 
-func process_physics(_delta: float) -> State:
-	return null
+func get_velocity(_direction: Vector2) -> Vector2:
+	return _direction * walk.move_speed * run_multiplier
 
-func _handle_input(event: InputEvent) -> State:
-	if event.is_action_released("run"): return walk
+func on_movement(_direction: Vector2) -> void:
+	if _direction != Vector2.ZERO and actor.set_direction():
+		actor.update_animation("walk")
+
+func handle_input(_event: InputEvent) -> State:
+	if Input.is_action_just_released("run"):
+		return walk
 	return null

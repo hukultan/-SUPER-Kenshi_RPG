@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2or36gkldphs"]
+[gd_scene load_steps=14 format=3 uid="uid://2or36gkldphs"]
 
 [ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/main.gd" id="1_85g3d"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="3_ya4ey"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://0jlaxi5nwsuc" path="res://textures/other/yt_logo_focus_tex.png" id="8_choun"]
 [ext_resource type="FontFile" uid="uid://cxs7cd6vuqdpq" path="res://resources/font/COMICBD.TTF" id="8_jbj1t"]
 [ext_resource type="AudioStream" uid="uid://7viarjhqu3d2" path="res://resources/audio/quit.ogg" id="9_muem4"]
-[ext_resource type="Texture2D" uid="uid://b0xtfy74e7f0g" path="res://textures/other/misc/voi.jpg" id="11_eb6dy"]
 
 [sub_resource type="TextMesh" id="TextMesh_04qyp"]
 text = "if your reading this yr'oue st*pid"
@@ -158,22 +157,6 @@ text = "Version: -0.0.1/0 pre-prototype (Date: Saturday Nov 08)
 Share this to anyone else!"
 horizontal_alignment = 1
 
-[node name="👀" type="TextureButton" parent="Control"]
-editor_description = "just ignore me pls 👀👀👀👀👀"
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -213.0
-offset_bottom = 187.42473
-grow_horizontal = 0
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("11_eb6dy")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="QuitAudio" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("9_muem4")
 pitch_scale = 0.97
@@ -182,4 +165,3 @@ bus = &"SFX"
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitButton" to="Control" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/YoutubeButton" to="Control" method="_on_youtube_button_pressed"]
-[connection signal="pressed" from="Control/👀" to="Control" method="_on__pressed"]

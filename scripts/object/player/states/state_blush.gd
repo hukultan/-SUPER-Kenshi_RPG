@@ -1,23 +1,19 @@
 class_name State_Blush
 extends State
 
-@onready var idle: State_Idle = %Idle
+@export var kenshi_idle: KenshiIdle
 
-func _enter() -> void:
-	player_ref.update_animation("blush")
-	pass
 
-func _exit() -> void:
-	pass
+func enter() -> void:
+	actor.update_animation("blush")
 
-func process_frame(_delta: float) -> State:
-	player_ref.velocity = Vector2.ZERO
-	return null
+func get_velocity(_direction: Vector2) -> Vector2:
+	return Vector2.ZERO
 
-func process_physics(_delta: float) -> State:
-	return null
+func on_movement(_direction: Vector2) -> void:
+	actor.velocity = Vector2.ZERO
 
-func _handle_input(_event: InputEvent) -> State:
-	if _event.is_action_released("special_action"): 
-		return idle
+func handle_input(event: InputEvent) -> State:
+	if event.is_action_released("special_action"):
+		return kenshi_idle
 	return null

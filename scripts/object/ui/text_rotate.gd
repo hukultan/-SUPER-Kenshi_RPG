@@ -11,8 +11,9 @@ var random_text: PackedStringArray = ["idk what to type", "rpg about kenshi yeey
 "Oh hi! Welcome to my game (this is totally not a baldi reference)", "Dos equipos son uno rojo y otro azul",\
 "guys pls stop slaving me i already did a lot for this", "get me out of the basement", "banana", "Black man twerking",\
 "Heres your progress now let me see my family", "Work In Proggres",
-"Kenshi server is turning into a pg13 furry shitshow", "DONT CLICK THE BUTTON ON THE TOP RIGHT", 
-"Start thinking about an actual game title pls", "hur hur hurhur hur hur hur hru"]
+"Kenshi server is turning into a pg13 furry shitshow", "Please give us more updates",
+"Start thinking about an actual game title pls", "hur hur hurhur hur hur hur hru",
+ "RPG game for sale, messy and on life support"]
 var tween: Tween 
 
 func _ready() -> void:

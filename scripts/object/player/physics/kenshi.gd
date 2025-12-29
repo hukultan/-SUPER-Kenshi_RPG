@@ -1,55 +1,67 @@
 class_name Player
 extends CharacterBody2D
 
+@export var sprite_frames: AnimatedSprite2D
+@export var state_machine: StateMachine
+@export var facing: FacingDirection
 
-var direction : Vector2 = Vector2.DOWN
-var cardinal_dir: Vector2 = Vector2.ZERO
-# Node path references to make things easier
-@export var sprite_frames: AnimatedSprite2D 
-@export var state_machine: PlayerStateMachine
-
+var direction: Vector2 = Vector2.ZERO
+var cardinal_dir: int = FacingDirection.Dir.DOWN
 
 func _ready() -> void:
-	# Get the initial state and run it in the scene
-	state_machine._initialize(self)
-	pass
-
-func _process(_delta: float) -> void:
-	# Get the directions from key presses
-	direction = Input.get_vector("left", "right", "up", "down").normalized()
-	pass
+	state_machine.initialize(self)
 
 func _physics_process(_delta: float) -> void:
-	# Move function to process physics every frame
+	# 1. Read input
+	var input_dir: Vector2 = Input.get_vector("left","right","up","down").normalized()
+
+	# 2. Update direction FIRST
+	direction = input_dir
+
+	# 3. Ask state if direction causes transition
+	var new_state: State = state_machine.current_state.on_direction_changed(direction)
+	if new_state:
+		state_machine.change_state(new_state)
+
+	# 4. Apply velocity from state
+	velocity = state_machine.current_state.get_velocity(direction)
+	# 5. Let state update animation / facing
+	state_machine.current_state.on_movement(direction)
 	move_and_slide()
 
+
+func _unhandled_input(event: InputEvent) -> void:
+	var new_state: State = state_machine.current_state.handle_input(event)
+	if new_state:
+		state_machine.change_state(new_state)
+
 func set_direction() -> bool:
-	# The direction starts at Vector2.DOWN
-	var new_dir: Vector2 = cardinal_dir
+	var new_dir: int = cardinal_dir
 	if direction == Vector2.ZERO:
 		return false
-	# Look left and right based on scale
+
 	if direction.y == 0:
-		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
+		new_dir = FacingDirection.Dir.LEFT if direction.x < 0 else FacingDirection.Dir.RIGHT
 	elif direction.x == 0:
-		new_dir = Vector2.UP if direction.y > 0 else Vector2.DOWN
+		new_dir = FacingDirection.Dir.UP if direction.y < 0 else FacingDirection.Dir.DOWN
+
 	if new_dir == cardinal_dir:
 		return false
+
 	cardinal_dir = new_dir
-	sprite_frames.scale.x = -0.661 if cardinal_dir == Vector2.LEFT else 0.661
+
+	# Flip sprite for horizontal movement
+	if cardinal_dir == FacingDirection.Dir.LEFT:
+		sprite_frames.scale.x = -facing.flip_scale
+	elif cardinal_dir == FacingDirection.Dir.RIGHT:
+		sprite_frames.scale.x = facing.flip_scale
+
 	return true
 
-func update_animation(state: String) -> void:
-	# Get the name of the animation with a direction
-	# To make the animations work, you have to create them from a \
-	# sprite sheet and name it one of the directions
-	sprite_frames.play(state + "_" + anim_direction())
-	pass
+func update_animation(state_name: StringName) -> void:
+	var anim_name: StringName = facing.to_anim_name(cardinal_dir, state_name)
 
-func anim_direction() -> String:
-	if cardinal_dir == Vector2.DOWN:
-		return "down"
-	elif cardinal_dir == Vector2.UP:
-		return "up"
+	if sprite_frames.sprite_frames.has_animation(anim_name):
+		sprite_frames.play(anim_name)
 	else:
-		return "side"
+		sprite_frames.play(state_name)

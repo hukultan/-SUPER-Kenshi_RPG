@@ -1,28 +1,28 @@
 class_name State
 extends Node
 
-static var player_ref: Player
+var actor: CharacterBody2D
 
-## When it starts executing
-func _ready() -> void:
+# Called when the state becomes active
+func enter() -> void:
 	pass
 
-## When it enters the scene 
-func _enter() -> void:
+# Called when the state stops being active
+func exit() -> void:
 	pass
 
-## When the state isnt needed and exit the scene
-func _exit() ->  void:
+# Optional: input-driven transition
+func handle_input(_event: InputEvent) -> State:
+	return null
+
+# Event-driven transition hook (direction changes)
+func on_direction_changed(_direction: Vector2) -> State:
+	return null
+
+# Movement update per frame (update animations, sprite flip)
+func on_movement(_direction: Vector2) -> void:
 	pass
 
-## What happens every frame
-func process_frame(_delta: float) -> State:
-	return null
-
-## What happens every synced physics frame 
-func process_physics(_delta: float) -> State:
-	return null
-
-## When input is detected by the state
-func _handle_input(_event: InputEvent) -> State:
-	return null
+# Return velocity for the actor
+func get_velocity(_direction: Vector2) -> Vector2:
+	return Vector2.ZERO

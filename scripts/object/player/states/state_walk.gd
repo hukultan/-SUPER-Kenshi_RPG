@@ -2,26 +2,25 @@ class_name State_Walk
 extends State
 
 @export var move_speed: float = 250.0
-@onready var idle: State_Idle = %Idle
-@onready var run: State_Run = %Run
+@export var idle: State_Idle
+@export var run: State_Run
 
+func enter() -> void:
+	actor.update_animation("walk")
 
-func _enter() -> void:
-	player_ref.update_animation("walk")
-	pass
-
-func _exit() -> void:
-	pass
-
-func process_frame(_delta: float) -> State:
-	if player_ref.direction == Vector2.ZERO: return idle
-	player_ref.velocity = player_ref.direction * move_speed
-	if player_ref.set_direction(): player_ref.update_animation("walk")
+func on_direction_changed(new_dir: Vector2) -> State:
+	if new_dir == Vector2.ZERO:
+		return idle
 	return null
 
-func process_physics(_delta: float) -> State:
-	return null
+func get_velocity(_direction: Vector2) -> Vector2:
+	return _direction * move_speed
 
-func _handle_input(event: InputEvent) -> State:
-	if event.is_action_pressed("run"): return run
+func on_movement(_direction: Vector2) -> void:
+	if _direction != Vector2.ZERO and actor.set_direction():
+		actor.update_animation("walk")
+
+func handle_input(_event: InputEvent) -> State:
+	if Input.is_action_pressed("run"):
+		return run
 	return null

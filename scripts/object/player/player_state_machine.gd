@@ -1,43 +1,32 @@
-class_name PlayerStateMachine
+class_name StateMachine
 extends Node
 
-var states: Array[State]
+var states: Array[State] = []
 var previous_state: State
 var current_state: State
-
+var actor: CharacterBody2D
 
 func _ready() -> void:
-	self.process_mode = Node.PROCESS_MODE_DISABLED
-	pass
+	process_mode = Node.PROCESS_MODE_DISABLED
 
-func _process(delta: float) -> void:
-	_change_state(current_state.process_frame(delta))
-	pass
+func initialize(_actor: CharacterBody2D) -> void:
+	actor = _actor
+	states.clear()
+	for child: Node in get_children():
+		if child is State:
+			var s: State = child
+			s.actor = actor
+			states.append(s)
 
-func _physics_process(delta: float) -> void:
-	_change_state(current_state.process_physics(delta))
-	pass
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	_change_state(current_state._handle_input(event))
-	pass
-
-func _initialize(_player: Player) -> void:
-	states = []
-	for a in get_children():
-		if a is State:
-			states.append(a)
 	if states.size() > 0:
-		states[0].player_ref = _player
-		_change_state(states[0])
-		self.process_mode = Node.PROCESS_MODE_INHERIT
+		change_state(states[0])
+		process_mode = Node.PROCESS_MODE_INHERIT
 
-func _change_state(new_state: State) -> void:
-	if new_state == null || new_state == current_state:
+func change_state(new_state: State) -> void:
+	if new_state == null or new_state == current_state:
 		return
 	if current_state:
-		current_state._exit()
+		current_state.exit()
 	previous_state = current_state
 	current_state = new_state
-	current_state._enter()
+	current_state.enter()

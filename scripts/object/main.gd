@@ -14,6 +14,3 @@ func _ready() -> void:
 		if OS.is_debug_build(): OS.alert( \
 		"you testing huh?, good luck testing and debugging this", "Developer detected")
 		else: OS.alert("👅👅👅👅👅👅👅👅👅👅👅👅👅👅👅👅👅👅👅", "Freak detected!")
-	if rand_chance == 59:
-		if $"Control/👀".hidden: $"Control/👀".show()
-	pass

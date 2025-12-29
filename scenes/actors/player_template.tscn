@@ -28,7 +28,6 @@ script = ExtResource("4_c3w83")
 [node name="Walk" type="Node" parent="StateMachine"]
 unique_name_in_owner = true
 script = ExtResource("5_dqswy")
-move_speed = 100.0
 
 [node name="Run" type="Node" parent="StateMachine"]
 unique_name_in_owner = true

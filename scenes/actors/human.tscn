@@ -1,11 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://bj33lek3nolv5"]
+[gd_scene load_steps=19 format=3 uid="uid://bj33lek3nolv5"]
 
 [ext_resource type="Script" uid="uid://dv7ib8l75nil3" path="res://scripts/object/player/physics/kenshi.gd" id="1_5ka3i"]
 [ext_resource type="Texture2D" uid="uid://bhuxwjw0p4vng" path="res://textures/sprite_sheets/actors/actor_idk/idk_sheet.png" id="2_8aupm"]
 [ext_resource type="Script" uid="uid://bfwg8qqc340av" path="res://scripts/object/player/player_state_machine.gd" id="2_i65in"]
+[ext_resource type="Script" uid="uid://c62c2ket6ao0y" path="res://scripts/object/animation_directions.gd" id="2_knhe1"]
 [ext_resource type="Script" uid="uid://cv0lw5tg7vkei" path="res://scripts/object/player/states/state_idle.gd" id="3_0lrh6"]
 [ext_resource type="Script" uid="uid://jgkq4na8nubf" path="res://scripts/object/player/states/state_walk.gd" id="4_fxbju"]
 [ext_resource type="Script" uid="uid://crvrwnx88x1aj" path="res://scripts/object/player/states/state_run.gd" id="6_s1i8r"]
+
+[sub_resource type="Resource" id="Resource_28jwu"]
+script = ExtResource("2_knhe1")
+metadata/_custom_type_script = "uid://c62c2ket6ao0y"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5w0r3"]
 atlas = ExtResource("2_8aupm")
@@ -108,12 +113,13 @@ motion_mode = 1
 script = ExtResource("1_5ka3i")
 sprite_frames = NodePath("AnimatedSprite2D")
 state_machine = NodePath("StateMachine")
+facing = SubResource("Resource_28jwu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.661157, 0.530612)
 sprite_frames = SubResource("SpriteFrames_b1bl1")
-animation = &"idle_side"
+animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 20)
@@ -122,18 +128,22 @@ shape = SubResource("CircleShape2D_ru3cj")
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_i65in")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk")]
 unique_name_in_owner = true
 script = ExtResource("3_0lrh6")
+walk = NodePath("../Walk")
 
-[node name="Walk" type="Node" parent="StateMachine"]
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle", "run")]
 unique_name_in_owner = true
 script = ExtResource("4_fxbju")
-move_speed = 100.0
+idle = NodePath("../Idle")
+run = NodePath("../Run")
 
-[node name="Run" type="Node" parent="StateMachine"]
+[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk", "idle")]
 unique_name_in_owner = true
 script = ExtResource("6_s1i8r")
+walk = NodePath("../Walk")
+idle = NodePath("../Idle")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.285, 1.285)
