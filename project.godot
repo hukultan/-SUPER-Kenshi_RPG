@@ -29,7 +29,6 @@ Global="*res://scripts/const/global.gd"
 
 [display]
 
-window/size/always_on_top=true
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://buy04n83arvup"
 mouse_cursor/custom_image_hotspot=Vector2(100, 10)

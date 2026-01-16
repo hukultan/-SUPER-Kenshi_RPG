@@ -6,7 +6,7 @@ extends MarginContainer
 ## Opens a pop up window using your browser when the program closes
 @export var open_browser: bool = false
 ## Set the scene to change
-@export var next_scene: PackedScene = preload("res://scenes/map_test.tscn")
+@export var next_scene: PackedScene
 
 @export var node_3d: Node3D #= %Node3D
 @export var quit_button: Button
@@ -15,18 +15,20 @@ extends MarginContainer
 @export var quit_audio: AudioStreamPlayer
 
 func _ready() -> void:
-	quit_button.pressed.connect(_on_quit_button_pressed)
-	play_button.pressed.connect(_on_play_button_pressed)
-	youtube_button.pressed.connect(_on_youtube_button_pressed)
+	if not quit_button.pressed.is_connected(_on_quit_button_pressed):
+		quit_button.pressed.connect(_on_quit_button_pressed)
+	if not play_button.pressed.is_connected(_on_play_button_pressed):
+		play_button.pressed.connect(_on_play_button_pressed)
+	if not youtube_button.pressed.is_connected(_on_youtube_button_pressed):
+		youtube_button.pressed.connect(_on_youtube_button_pressed)
 
 
 func _on_play_button_pressed() -> void:
-	if next_scene != null:
+	if next_scene.can_instantiate():
 		# When we ambataplay
 		get_tree().change_scene_to_packed(next_scene)
 	else: 
 		printerr("The next scene variable is null!")
-	
 	# I dont know why i wrote this but it ties the entire project
 	# If you delete the entire thing will become unplayable and it will ruin your /
 	# premature career, wanna know? just hit CTRL + V when you play it

@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://brr26j4osrngp"]
+[gd_scene load_steps=14 format=3 uid="uid://brr26j4osrngp"]
 
+[ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/ui/main.gd" id="1_0v1x5"]
 [ext_resource type="Theme" uid="uid://cu0i3br8dpd0r" path="res://resources/theme/main_theme.tres" id="1_ararw"]
 [ext_resource type="FontFile" uid="uid://ciapw41rsqeok" path="res://resources/font/COMICZ.TTF" id="1_s7rf8"]
-[ext_resource type="Script" uid="uid://b7mjykrmg1o0u" path="res://scripts/object/ui/control.gd" id="2_40j5d"]
+[ext_resource type="Script" uid="uid://b7mjykrmg1o0u" path="res://scripts/object/ui/menu_main.gd" id="2_40j5d"]
 [ext_resource type="Texture2D" uid="uid://gmos3clovqoi" path="res://textures/other/yt_logo_tex.png" id="2_ararw"]
 [ext_resource type="Texture2D" uid="uid://0jlaxi5nwsuc" path="res://textures/other/yt_logo_focus_tex.png" id="3_ppyea"]
 [ext_resource type="FontFile" uid="uid://cxs7cd6vuqdpq" path="res://resources/font/COMICBD.TTF" id="4_40j5d"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="5_0v1x5"]
 [ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/object/ui/text_rotate.gd" id="6_sgfwp"]
+[ext_resource type="PackedScene" uid="uid://2or36gkldphs" path="res://scenes/main.tscn" id="6_wn0pi"]
 [ext_resource type="AudioStream" uid="uid://7viarjhqu3d2" path="res://resources/audio/quit.ogg" id="7_0v1x5"]
 
 [sub_resource type="TextMesh" id="TextMesh_wn0pi"]
@@ -19,6 +21,53 @@ font_size = 22
 emission = Color(0.94269544, 0.9210767, 0.95183223, 1)
 
 [node name="Main" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="MainMenu" type="Node2D" parent="Node2D"]
+script = ExtResource("1_0v1x5")
+
+[node name="Node3D" type="Node3D" parent="Node2D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node2D/Node3D"]
+mesh = SubResource("TextMesh_wn0pi")
+surface_material_override/0 = SubResource("StandardMaterial3D_xxodg")
+script = ExtResource("6_sgfwp")
+color_enabled = false
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Node2D/Node3D"]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(829.196, 344.371)
+anchors_preset = -1
+anchor_top = 0.009000001
+anchor_right = 1.0
+anchor_bottom = 0.744
+offset_top = -5.8320003
+offset_right = -8.439941
+offset_bottom = -84.112
+grow_horizontal = 0
+scale = Vector2(1.007, 1.208)
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="Node2D/Node3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_scale = 0.48
+anisotropic_filtering_level = 0
+oversampling = false
+size = Vector2i(1143, 398)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Node2D/Node3D/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.536245)
+cull_mask = 1047553
+fov = 55.3
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node2D/Node3D"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.45402, -0.471577, 0.755964, -0.20945, 0.768188, 0.604995, 1.13113, 3.7494, 0)
+light_cull_mask = 4294966273
+sky_mode = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -50,7 +99,8 @@ theme_override_constants/margin_top = 130
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 script = ExtResource("2_40j5d")
-node_3d = NodePath("../../Node3D")
+next_scene = ExtResource("6_wn0pi")
+node_3d = NodePath("../../Node2D/Node3D")
 quit_button = NodePath("VBoxContainer/QuitButton")
 play_button = NodePath("VBoxContainer/PlayButton")
 youtube_button = NodePath("YoutubeButton")
@@ -123,44 +173,3 @@ horizontal_alignment = 1
 stream = ExtResource("7_0v1x5")
 pitch_scale = 0.97
 bus = &"SFX"
-
-[node name="Node3D" type="Node3D" parent="."]
-unique_name_in_owner = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-mesh = SubResource("TextMesh_wn0pi")
-surface_material_override/0 = SubResource("StandardMaterial3D_xxodg")
-script = ExtResource("6_sgfwp")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Node3D"]
-texture_filter = 1
-custom_minimum_size = Vector2(829.196, 344.371)
-anchors_preset = -1
-anchor_top = 0.009000001
-anchor_right = 1.0
-anchor_bottom = 0.744
-offset_top = -5.8320003
-offset_right = -8.439941
-offset_bottom = -84.112
-grow_horizontal = 0
-scale = Vector2(1.007, 1.208)
-mouse_filter = 2
-
-[node name="SubViewport" type="SubViewport" parent="Node3D/SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-scaling_3d_scale = 0.48
-anisotropic_filtering_level = 0
-oversampling = false
-size = Vector2i(1143, 398)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="Node3D/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.536245)
-cull_mask = 1047553
-fov = 55.3
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.45402, -0.471577, 0.755964, -0.20945, 0.768188, 0.604995, 1.13113, 3.7494, 0)
-light_cull_mask = 4294966273
-sky_mode = 1

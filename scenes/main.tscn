@@ -1,12 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://2or36gkldphs"]
+[gd_scene load_steps=13 format=3 uid="uid://2or36gkldphs"]
 
-[ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/main.gd" id="1_85g3d"]
+[ext_resource type="Script" uid="uid://dpf2ucejrhg37" path="res://scripts/object/ui/main.gd" id="1_85g3d"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="3_ya4ey"]
 [ext_resource type="Theme" uid="uid://cu0i3br8dpd0r" path="res://resources/theme/main_theme.tres" id="4_choun"]
 [ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/object/ui/text_rotate.gd" id="4_eb6dy"]
-[ext_resource type="Script" uid="uid://b7mjykrmg1o0u" path="res://scripts/object/ui/control.gd" id="5_trceg"]
+[ext_resource type="Script" uid="uid://b7mjykrmg1o0u" path="res://scripts/object/ui/menu_main.gd" id="5_trceg"]
 [ext_resource type="FontFile" uid="uid://ciapw41rsqeok" path="res://resources/font/COMICZ.TTF" id="6_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://o1shc5fqyvwn" path="res://scenes/map_test.tscn" id="6_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://gmos3clovqoi" path="res://textures/other/yt_logo_tex.png" id="7_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://0jlaxi5nwsuc" path="res://textures/other/yt_logo_focus_tex.png" id="8_choun"]
 [ext_resource type="FontFile" uid="uid://cxs7cd6vuqdpq" path="res://resources/font/COMICBD.TTF" id="8_jbj1t"]
@@ -79,7 +78,6 @@ offset_bottom = 646.0
 mouse_filter = 1
 theme = ExtResource("4_choun")
 script = ExtResource("5_trceg")
-next_scene = ExtResource("6_ya4ey")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
