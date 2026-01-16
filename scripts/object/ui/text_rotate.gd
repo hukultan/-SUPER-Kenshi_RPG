@@ -22,25 +22,30 @@ func _ready() -> void:
 	var text_mesh := self.mesh
 	# set a random string from the variable and set it to the mesh
 	text_mesh.text = random_text[randi() % random_text.size()]
-	pass
+
 
 func _process(delta: float) -> void:
 	# Rotate the model every frame to get that kool effect
 	await get_tree().process_frame
 	self.rotate_y(ROTATE_SPEED * delta)
 	_change_material_color(0.6)
-	pass
+
 
 func _change_material_color(time_speed: float) -> void:
-	if tween: tween.kill()
-	var material := self.get_active_material(0)
+	if tween: 
+		tween.kill()
+	
+	var material : Material = self.get_active_material(0)
+	
 	if material == null: 
-		printerr("Material "+str(material)+" of mesh "+self.get_name()+" is null!")
+		printerr("Material " + str(material) + " of mesh " + self.get_name() + " is null!")
 		return
+	
 	if !color_enabled:
 		material.albedo_color = Color.WHITE
 		material.resource_local_to_scene = false
 		return
+	
 	elif material != null:
 		tween = create_tween()
 		var rand_color: Color = Color(randf(), randf(), randf(), 1.0) 

@@ -14,7 +14,7 @@ config/name="super kenshi rpg"
 config/description="rpg for kenshi"
 config/version="Version: -0.0.1/2 pre-prototype"
 config/tags=PackedStringArray("2d", "top_down_2d")
-run/main_scene="uid://2or36gkldphs"
+run/main_scene="uid://brr26j4osrngp"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/use_filter=false
@@ -29,6 +29,7 @@ Global="*res://scripts/const/global.gd"
 
 [display]
 
+window/size/always_on_top=true
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://buy04n83arvup"
 mouse_cursor/custom_image_hotspot=Vector2(100, 10)
