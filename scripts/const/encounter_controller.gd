@@ -1,7 +1,7 @@
 extends Node
 
 static var is_moving : bool = false
-static var counter_increment : int = 2
+static var counter_increment : int = 192
 static var counter : int = 0
 static var random_number : int = 0
 static var seconds_counter: float = 0.0
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		seconds_counter = 0.0
 		counter += counter_increment
 		random_number = rng.randi_range(0, 2)
-		if random_number < (counter / 2.0) and not Global.in_battle:
+		if random_number < (counter / 256.0) and not Global.in_battle:
 			print("fight condition is true!")
 			
 			counter = 0
