@@ -165,8 +165,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("4_40j5d")
 theme_override_font_sizes/font_size = 31
-text = "Version: -0.0.1/0.1 pre-prototype (Date: Sunday Dec 28)
-Share this to anyone else that cares!"
+text = "Version: -0.10/0.0 pre-prototype (Date: Monday Feb 2 2026)
+i give up on changing this. there goes my creativity"
 horizontal_alignment = 1
 
 [node name="QuitAudio" type="AudioStreamPlayer" parent="Control"]
