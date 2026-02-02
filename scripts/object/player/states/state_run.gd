@@ -18,6 +18,7 @@ func get_velocity(_direction: Vector2) -> Vector2:
 
 func on_movement(_direction: Vector2) -> void:
 	if _direction != Vector2.ZERO and actor.set_direction():
+		EncounterController.is_moving = true
 		actor.update_animation("walk")
 
 func handle_input(_event: InputEvent) -> State:

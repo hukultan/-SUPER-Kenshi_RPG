@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://csf5fdpe73hy1"]
+
+[ext_resource type="Texture2D" uid="uid://cwh7jbieph1vl" path="res://textures/map/map_sprite_placeholder.png" id="1_7lhv8"]
+[ext_resource type="PackedScene" uid="uid://dmftsli26rx26" path="res://scenes/actors/kenshi.tscn" id="2_nh1y2"]
+[ext_resource type="PackedScene" uid="uid://dhxu1yt6pwcqw" path="res://scenes/battle_area.tscn" id="3_ixfb2"]
+[ext_resource type="Texture2D" uid="uid://ddvv5jh6dikit" path="res://textures/other/black.png" id="3_vw1lw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh1y2"]
+size = Vector2(3412, 122.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vw1lw"]
+size = Vector2(1773, 122.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro3u8"]
+size = Vector2(1195, 581)
+
+[node name="Map" type="Node2D"]
+
+[node name="MapSpritePlaceholder" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(510, 246)
+scale = Vector2(2.1662843, 2.4014854)
+texture = ExtResource("1_7lhv8")
+
+[node name="kenshi" parent="." instance=ExtResource("2_nh1y2")]
+position = Vector2(242, 212)
+
+[node name="Camera2D" type="Camera2D" parent="kenshi"]
+position = Vector2(-6.051422, 3.7664795)
+scale = Vector2(1.5128593, 1.8832392)
+zoom = Vector2(1.285, 1.285)
+position_smoothing_enabled = true
+
+[node name="Black" type="Sprite2D" parent="kenshi"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(4.5997715, 5.4276147)
+texture = ExtResource("3_vw1lw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(513, 1148)
+shape = SubResource("RectangleShape2D_nh1y2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(513, -760)
+shape = SubResource("RectangleShape2D_nh1y2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1157, 181.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_vw1lw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2152, 181.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_vw1lw")
+
+[node name="BattleArea" parent="." instance=ExtResource("3_ixfb2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleArea"]
+position = Vector2(-268, -260)
+shape = SubResource("RectangleShape2D_ro3u8")
+debug_color = Color(0.835135, 0.32629454, 0.5523958, 0.41960785)
+
+[node name="BattleArea2" parent="." instance=ExtResource("3_ixfb2")]
+position = Vector2(1590, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleArea2"]
+position = Vector2(-268, -260)
+shape = SubResource("RectangleShape2D_ro3u8")
+debug_color = Color(0.835135, 0.32629454, 0.5523958, 0.41960785)
+
+[node name="BattleArea3" parent="." instance=ExtResource("3_ixfb2")]
+position = Vector2(1573, 795)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleArea3"]
+position = Vector2(-268, -260)
+shape = SubResource("RectangleShape2D_ro3u8")
+debug_color = Color(0.835135, 0.32629454, 0.5523958, 0.41960785)
+
+[node name="BattleArea4" parent="." instance=ExtResource("3_ixfb2")]
+position = Vector2(-68, 979)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleArea4"]
+position = Vector2(-268, -260)
+shape = SubResource("RectangleShape2D_ro3u8")
+debug_color = Color(0.835135, 0.32629454, 0.5523958, 0.41960785)

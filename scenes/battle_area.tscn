@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dhxu1yt6pwcqw"]
+
+[node name="BattleArea" type="Area2D" groups=["encounter_area"]]
+collision_layer = 2
+collision_mask = 2

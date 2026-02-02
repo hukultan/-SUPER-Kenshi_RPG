@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dmftsli26rx26"]
+[gd_scene load_steps=23 format=3 uid="uid://dmftsli26rx26"]
 
 [ext_resource type="Script" uid="uid://dv7ib8l75nil3" path="res://scripts/object/player/physics/kenshi.gd" id="1_5cfjx"]
 [ext_resource type="Script" uid="uid://c62c2ket6ao0y" path="res://scripts/object/animation_directions.gd" id="2_s6shv"]
@@ -12,6 +12,9 @@
 [sub_resource type="Resource" id="Resource_s6shv"]
 script = ExtResource("2_s6shv")
 metadata/_custom_type_script = "uid://c62c2ket6ao0y"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r03vp"]
+radius = 84.56022
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wumyj"]
 atlas = ExtResource("2_yvivp")
@@ -140,7 +143,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ru3cj"]
 radius = 38.026176
 
-[node name="kenshi" type="CharacterBody2D" node_paths=PackedStringArray("sprite_frames", "state_machine")]
+[node name="kenshi" type="CharacterBody2D" node_paths=PackedStringArray("sprite_frames", "state_machine") groups=["characters"]]
 scale = Vector2(0.661, 0.531)
 collision_mask = 16
 motion_mode = 1
@@ -148,6 +151,14 @@ script = ExtResource("1_5cfjx")
 sprite_frames = NodePath("AnimatedSprite2D")
 state_machine = NodePath("StateMachine")
 facing = SubResource("Resource_s6shv")
+
+[node name="Encounterer" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Encounterer"]
+shape = SubResource("CircleShape2D_r03vp")
+debug_color = Color(0.8352941, 0.3254902, 0.5529412, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -178,7 +189,3 @@ unique_name_in_owner = true
 script = ExtResource("7_52o55")
 walk = NodePath("../Walk")
 idle = NodePath("../Idle")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.285, 1.285)
-position_smoothing_enabled = true

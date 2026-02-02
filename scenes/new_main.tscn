@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://cxs7cd6vuqdpq" path="res://resources/font/COMICBD.TTF" id="4_40j5d"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="5_0v1x5"]
 [ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/object/ui/text_rotate.gd" id="6_sgfwp"]
-[ext_resource type="PackedScene" uid="uid://2or36gkldphs" path="res://scenes/main.tscn" id="6_wn0pi"]
+[ext_resource type="PackedScene" uid="uid://csf5fdpe73hy1" path="res://scenes/new_map.tscn" id="6_wn0pi"]
 [ext_resource type="AudioStream" uid="uid://7viarjhqu3d2" path="res://resources/audio/quit.ogg" id="7_0v1x5"]
 
 [sub_resource type="TextMesh" id="TextMesh_wn0pi"]

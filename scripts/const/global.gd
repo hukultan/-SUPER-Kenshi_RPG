@@ -1,33 +1,23 @@
 extends Node
 
 signal pp_changed
-signal enemy_killed
-#signal display_text(p_text: String, p_requires_input: bool)
-#signal text_finished
-enum {
-	FIGHT, ACT, ITEM, DEFEND,
-}
-const YELLOW := Color("#ffff00")
-const GREEN := Color("#00ff00")
-const CENTER := Vector2(308.0, 171.0)
+#signal enemy_killed
 var pp : float = 0.0:
 	set(p_pp):
 		pp = minf(p_pp, 250.0)
 		pp_changed.emit()
 
 var pp_coefficient := 1
-var displaying_text := false
-var characters: Array[Character] = []
-var monsters: Array[Monster] = []
-var items: Array[Item] = []
-
+var in_battle : bool = false
+var input_enabled : bool = true
 
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	pass
 
+
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("fullscrn"): 
+	if event.is_action_pressed("fullscreen"): 
 			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			else:
@@ -46,12 +36,3 @@ func change_to_scene(scene_path: String, fade : bool = true) -> void:
 		get_tree().paused = false
 	else:
 		get_tree().change_scene_to_file(scene_path)
-
-func wait_time(time: float) -> Signal:
-	return get_tree().create_timer(time).timeout
-
-func delete_monster(p_monster: Monster) -> void:
-	var monster_index := monsters.find(p_monster)
-	if monster_index != -1:
-		monsters[monster_index] = null
-	enemy_killed.emit()

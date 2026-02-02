@@ -12,6 +12,8 @@ func _ready() -> void:
 	state_machine.initialize(self)
 
 func _physics_process(_delta: float) -> void:
+	if not Global.input_enabled:
+		return
 	# 1. Read input
 	var input_dir: Vector2 = Input.get_vector("left","right","up","down").normalized()
 
@@ -31,11 +33,15 @@ func _physics_process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not Global.input_enabled:
+		return
 	var new_state: State = state_machine.current_state.handle_input(event)
 	if new_state:
 		state_machine.change_state(new_state)
 
 func set_direction() -> bool:
+	if not Global.input_enabled:
+		return false
 	var new_dir: int = cardinal_dir
 	if direction == Vector2.ZERO:
 		return false
@@ -59,6 +65,8 @@ func set_direction() -> bool:
 	return true
 
 func update_animation(state_name: StringName) -> void:
+	if not Global.input_enabled:
+		return
 	var anim_name: StringName = facing.to_anim_name(cardinal_dir, state_name)
 
 	if sprite_frames.sprite_frames.has_animation(anim_name):
