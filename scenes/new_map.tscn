@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://csf5fdpe73hy1"]
+[gd_scene load_steps=10 format=3 uid="uid://csf5fdpe73hy1"]
 
 [ext_resource type="Texture2D" uid="uid://cwh7jbieph1vl" path="res://textures/map/map_sprite_placeholder.png" id="1_7lhv8"]
 [ext_resource type="PackedScene" uid="uid://dmftsli26rx26" path="res://scenes/actors/kenshi.tscn" id="2_nh1y2"]
 [ext_resource type="PackedScene" uid="uid://dhxu1yt6pwcqw" path="res://scenes/battle_area.tscn" id="3_ixfb2"]
 [ext_resource type="Texture2D" uid="uid://ddvv5jh6dikit" path="res://textures/other/black.png" id="3_vw1lw"]
+[ext_resource type="Theme" uid="uid://cu0i3br8dpd0r" path="res://resources/theme/main_theme.tres" id="5_ro3u8"]
+[ext_resource type="Script" uid="uid://bm1ucqwix8mrm" path="res://scripts/object/ui/return_to_main_menu_button.gd" id="6_ejkst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nh1y2"]
 size = Vector2(3412, 122.5)
@@ -89,3 +91,23 @@ position = Vector2(-68, 979)
 position = Vector2(-268, -260)
 shape = SubResource("RectangleShape2D_ro3u8")
 debug_color = Color(0.835135, 0.32629454, 0.5523958, 0.41960785)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("5_ro3u8")
+theme_override_colors/font_pressed_color = Color(0.5554396, 0.0034439357, 0.09442007, 1)
+theme_override_colors/font_hover_color = Color(0.9097883, 0.14335981, 0.2024143, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.5018707, 0, 0.11686284, 1)
+theme_override_font_sizes/font_size = 31
+text = "return to main menu"
+script = ExtResource("6_ejkst")

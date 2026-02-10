@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://gmos3clovqoi" path="res://textures/other/yt_logo_tex.png" id="2_ararw"]
 [ext_resource type="Texture2D" uid="uid://0jlaxi5nwsuc" path="res://textures/other/yt_logo_focus_tex.png" id="3_ppyea"]
 [ext_resource type="FontFile" uid="uid://cxs7cd6vuqdpq" path="res://resources/font/COMICBD.TTF" id="4_40j5d"]
+[ext_resource type="AudioStream" uid="uid://bisimseom1qac" path="res://resources/audio/op--gurenge-by-lisa-hd.wav" id="4_sgfwp"]
 [ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="5_0v1x5"]
 [ext_resource type="Script" uid="uid://bsasnu5x610ew" path="res://scripts/object/ui/text_rotate.gd" id="6_sgfwp"]
-[ext_resource type="PackedScene" uid="uid://csf5fdpe73hy1" path="res://scenes/new_map.tscn" id="6_wn0pi"]
 [ext_resource type="AudioStream" uid="uid://7viarjhqu3d2" path="res://resources/audio/quit.ogg" id="7_0v1x5"]
 
 [sub_resource type="TextMesh" id="TextMesh_wn0pi"]
@@ -24,8 +24,9 @@ emission = Color(0.94269544, 0.9210767, 0.95183223, 1)
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="MainMenu" type="Node2D" parent="Node2D"]
+[node name="MainMenu" type="Node2D" parent="Node2D" node_paths=PackedStringArray("play_button")]
 script = ExtResource("1_0v1x5")
+play_button = NodePath("../../Control/MarginContainer/VBoxContainer/PlayButton")
 
 [node name="Node3D" type="Node3D" parent="Node2D"]
 
@@ -69,6 +70,13 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.45402, -0.471577, 0.75
 light_cull_mask = 4294966273
 sky_mode = 1
 
+[node name="MenuMusic" type="AudioStreamPlayer" parent="Node2D"]
+process_mode = 3
+stream = ExtResource("4_sgfwp")
+volume_db = -1.541
+autoplay = true
+bus = &"Music"
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -87,7 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2901961, 0.34117648, 0.59607846, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" node_paths=PackedStringArray("node_3d", "quit_button", "play_button", "youtube_button", "quit_audio")]
+[node name="MarginContainer" type="MarginContainer" parent="Control" node_paths=PackedStringArray("node_3d", "quit_button", "youtube_button", "quit_audio", "menu_music")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,18 +107,17 @@ theme_override_constants/margin_top = 130
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 script = ExtResource("2_40j5d")
-next_scene = ExtResource("6_wn0pi")
 node_3d = NodePath("../../Node2D/Node3D")
 quit_button = NodePath("VBoxContainer/QuitButton")
-play_button = NodePath("VBoxContainer/PlayButton")
 youtube_button = NodePath("YoutubeButton")
 quit_audio = NodePath("../QuitAudio")
+menu_music = NodePath("../../Node2D/MenuMusic")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 9
+theme_override_constants/separation = 13
 
 [node name="PlayButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -165,7 +172,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("4_40j5d")
 theme_override_font_sizes/font_size = 31
-text = "Version: -0.10/0.0 pre-prototype (Date: Monday Feb 2 2026)
+text = "Version: -0.10/0.0 pre-prototype (Date: Tuesday Feb 10 2026)
 i give up on changing this. there goes my creativity"
 horizontal_alignment = 1
 

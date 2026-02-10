@@ -14,20 +14,20 @@ func _ready() -> void:
 	random_encounter_sound = AudioStreamPlayer.new()
 	add_child(random_encounter_sound)
 	random_encounter_sound.stream = ResourceLoader.load("res://resources/audio/alert.mp3") as AudioStream
-
+	random_encounter_sound.volume_db = -5.0
 
 func _process(delta: float) -> void:
 	seconds_counter += delta
-	if is_moving and seconds_counter >= 0.2:
+	if is_moving and seconds_counter >= 0.5:
 		seconds_counter = 0.0
 		counter += counter_increment
-		random_number = rng.randi_range(0, 2)
+		random_number = rng.randi_range(0, 192)
 		if random_number < (counter / 256.0) and not Global.in_battle:
 			print("fight condition is true!")
 			
 			counter = 0
 			var battle_area : StringName = ""
-			var encounter_areas: Array[Node] = get_tree().get_nodes_in_group("encounter_area")
+			var encounter_areas: Array[Node] = get_tree().get_nodes_in_group(&"encounter_area")
 			for area : Area2D in encounter_areas:
 				var overlapping_bodies : Array[Node2D] = (area as Area2D).get_overlapping_bodies()
 				
@@ -43,7 +43,7 @@ func _start_battle(battle_area: String) -> void:
 	Global.input_enabled = false
 	Global.in_battle = true
 	var black_img : Sprite2D
-	var characters : Array[Node] = get_tree().get_nodes_in_group("characters")
+	var characters : Array[Node] = get_tree().get_nodes_in_group(&"characters")
 	for character: CharacterBody2D in characters:
 		var sprite : AnimatedSprite2D = character.get_node_or_null("AnimatedSprite2D")
 		black_img = character.get_node_or_null("%Black")

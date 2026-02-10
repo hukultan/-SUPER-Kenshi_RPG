@@ -27,7 +27,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func change_to_scene(scene_path: String, fade : bool = true) -> void:
 	if fade:
-		PostProcessing.fade_out(0.1)
+		PostProcessing.fade_out(0.5)
 		get_tree().paused = true
 		await PostProcessing.fade_finished
 		get_tree().change_scene_to_file(scene_path)
