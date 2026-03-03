@@ -27,6 +27,7 @@ Quit="*res://scripts/utility/quit.gd"
 PostProcessing="*res://scenes/ui/fade.tscn"
 Global="*res://scripts/const/global.gd"
 EncounterController="*res://scripts/const/encounter_controller.gd"
+AudioManager="*res://scenes/const/audio_manager_comp/audio_manager.tscn"
 
 [display]
 
