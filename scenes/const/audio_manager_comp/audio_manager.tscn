@@ -1,9 +1,50 @@
-[gd_scene format=3 uid="uid://dm4txgbrjmx1n"]
+[gd_scene load_steps=13 format=3 uid="uid://dm4txgbrjmx1n"]
 
-[node name="AudioManager" type="Node2D"]
+[ext_resource type="Script" uid="uid://du86k03lisces" path="res://scripts/object/audio_scripts/audio_manager.gd" id="1_47jvn"]
+[ext_resource type="Script" uid="uid://crwtl4xjv5rnq" path="res://scripts/object/audio_scripts/audio_source_resource/audio_setting.gd" id="2_laib4"]
+[ext_resource type="Script" uid="uid://cruycegapomrh" path="res://scripts/object/audio_scripts/audio_source_resource/game_audio.gd" id="4_j4a0c"]
+[ext_resource type="AudioStream" uid="uid://b1rhnljjleelb" path="res://resources/audio/sfx/sound_effects_ow_1.mp3" id="5_tdsen"]
+[ext_resource type="AudioStream" uid="uid://dagv1mc2abbx1" path="res://resources/audio/sfx/sound_effects_ow_2.mp3" id="6_p04yg"]
+[ext_resource type="AudioStream" uid="uid://5ktd62ki80c7" path="res://resources/audio/sfx/sound_effects_ow_3.mp3" id="7_3vpiu"]
+[ext_resource type="AudioStream" uid="uid://dfhufsah7ub8f" path="res://resources/audio/sfx/alert.mp3" id="7_laib4"]
 
-[node name="SFXStreamPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"SFX"
+[sub_resource type="Resource" id="Resource_x1c2j"]
+script = ExtResource("2_laib4")
+metadata/_custom_type_script = "uid://crwtl4xjv5rnq"
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ocvto"]
+random_pitch = 1.35
+streams_count = 3
+stream_0/stream = ExtResource("7_3vpiu")
+stream_1/stream = ExtResource("6_p04yg")
+stream_2/stream = ExtResource("5_tdsen")
+
+[sub_resource type="Resource" id="Resource_laib4"]
+script = ExtResource("2_laib4")
+source = SubResource("AudioStreamRandomizer_ocvto")
+metadata/_custom_type_script = "uid://crwtl4xjv5rnq"
+
+[sub_resource type="Resource" id="Resource_c7fdl"]
+script = ExtResource("2_laib4")
+source = ExtResource("7_laib4")
+volume_db = -7.0
+metadata/_custom_type_script = "uid://crwtl4xjv5rnq"
+
+[sub_resource type="Resource" id="Resource_10s2q"]
+script = ExtResource("4_j4a0c")
+sound_1 = SubResource("Resource_laib4")
+sound_2 = SubResource("Resource_c7fdl")
+main_music = SubResource("Resource_x1c2j")
+metadata/_custom_type_script = "uid://cruycegapomrh"
+
+[node name="AudioManager" type="Node2D" node_paths=PackedStringArray("music_player", "effects_pool")]
+process_mode = 3
+script = ExtResource("1_47jvn")
+game_audio = SubResource("Resource_10s2q")
+music_player = NodePath("MusicStreamPlayer")
+effects_pool = NodePath("AudioEffectPool")
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
+
+[node name="AudioEffectPool" type="Node2D" parent="."]

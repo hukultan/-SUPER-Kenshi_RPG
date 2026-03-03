@@ -5,16 +5,11 @@ static var counter_increment : int = 192
 static var counter : int = 0
 static var random_number : int = 0
 static var seconds_counter: float = 0.0
-@onready var random_encounter_sound : AudioStreamPlayer
 @onready var rng : RandomNumberGenerator 
 
 
 func _ready() -> void:
 	rng = RandomNumberGenerator.new()
-	random_encounter_sound = AudioStreamPlayer.new()
-	add_child(random_encounter_sound)
-	random_encounter_sound.stream = ResourceLoader.load("res://resources/audio/alert.mp3") as AudioStream
-	random_encounter_sound.volume_db = -5.0
 
 func _process(delta: float) -> void:
 	seconds_counter += delta
@@ -39,7 +34,8 @@ func _process(delta: float) -> void:
 
 func _start_battle(battle_area: String) -> void:
 	print("Battle Area: " + battle_area)
-	random_encounter_sound.play()
+	AudioManager.play_sound(AudioManager.game_audio.sound_2)
+	AudioManager.stop_music()
 	Global.input_enabled = false
 	Global.in_battle = true
 	var black_img : Sprite2D

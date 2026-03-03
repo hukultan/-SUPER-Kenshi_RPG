@@ -10,7 +10,7 @@ extends MarginContainer
 @export var quit_button: Button
 @export var youtube_button: TextureButton
 @export var quit_audio: AudioStreamPlayer
-@export var menu_music: AudioStreamPlayer
+
 
 func _ready() -> void:
 	if not quit_button.pressed.is_connected(_on_quit_button_pressed):
@@ -19,9 +19,8 @@ func _ready() -> void:
 		youtube_button.pressed.connect(_on_youtube_button_pressed)
 
 
-
-
 func _on_quit_button_pressed() -> void:
+	AudioManager.play_sound(AudioManager.game_audio.sound_1)
 	if wanna_hear_my_voice:
 		# Play the quit sequence also the audio yeah i forgor
 		quit_audio.play()
@@ -30,7 +29,7 @@ func _on_quit_button_pressed() -> void:
 		await quit_audio.finished
 	node_3d.process_mode = node_3d.PROCESS_MODE_DISABLED
 	self.process_mode = self.PROCESS_MODE_DISABLED
-	menu_music.process_mode = menu_music.PROCESS_MODE_DISABLED
+	AudioManager.process_mode = AudioManager.PROCESS_MODE_DISABLED
 	
 	if open_browser:
 		# funny link that opens your broser automatically
@@ -41,5 +40,6 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_youtube_button_pressed() -> void:
+	AudioManager.play_sound(AudioManager.game_audio.sound_1)
 	# Send the poor soul who touches this button to hell
 	OS.shell_open("https://www.youtube.com/@ilovekenshi")

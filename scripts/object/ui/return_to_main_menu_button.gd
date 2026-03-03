@@ -8,4 +8,5 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	if main_menu_scene != null:
+		AudioManager.play_sound(AudioManager.game_audio.sound_1)
 		Global.change_to_scene(main_menu_scene, true)

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://gmos3clovqoi" path="res://textures/other/yt_logo_tex.png" id="7_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://0jlaxi5nwsuc" path="res://textures/other/yt_logo_focus_tex.png" id="8_choun"]
 [ext_resource type="FontFile" uid="uid://cxs7cd6vuqdpq" path="res://resources/font/COMICBD.TTF" id="8_jbj1t"]
-[ext_resource type="AudioStream" uid="uid://7viarjhqu3d2" path="res://resources/audio/quit.ogg" id="9_muem4"]
+[ext_resource type="AudioStream" uid="uid://7viarjhqu3d2" path="res://resources/audio/sfx/quit.ogg" id="9_muem4"]
 
 [sub_resource type="TextMesh" id="TextMesh_04qyp"]
 text = "if your reading this yr'oue st*pid"
