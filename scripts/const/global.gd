@@ -10,6 +10,8 @@ var pp : float = 0.0:
 var pp_coefficient := 1
 var in_battle : bool = false
 var input_enabled : bool = true
+var current_slot : String = "DEV"
+
 
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS

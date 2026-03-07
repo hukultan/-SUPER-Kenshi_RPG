@@ -1,3 +1,45 @@
-[gd_scene format=3 uid="uid://gaj8fxrmffnr"]
+[gd_scene load_steps=2 format=3 uid="uid://gaj8fxrmffnr"]
+
+[ext_resource type="Texture2D" uid="uid://b0xtfy74e7f0g" path="res://textures/other/misc/voi.jpg" id="1_84kc1"]
 
 [node name="BattleCanvas" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(861.31506, 536.94604)
+scale = Vector2(0.5209409, 0.24043584)
+texture = ExtResource("1_84kc1")
+
+[node name="PartyControlHolder" type="Control" parent="Sprite2D"]
+layout_mode = 3
+anchor_left = 0.569
+anchor_top = 0.46100003
+anchor_right = 0.569
+anchor_bottom = 0.46100003
+offset_left = -1011.85114
+offset_top = -893.56805
+offset_right = -152.44666
+offset_bottom = -11.835999
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Sprite2D/PartyControlHolder"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63000005
+anchor_top = 0.5
+anchor_right = 0.63000005
+anchor_bottom = 0.5
+offset_left = -385.93698
+offset_top = -415.687
+offset_right = 341.28107
+offset_bottom = 411.97668
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Sprite2D/PartyControlHolder/MarginContainer"]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(283.84247, 536.94604)
+scale = Vector2(0.50867826, 0.24043584)
+texture = ExtResource("1_84kc1")

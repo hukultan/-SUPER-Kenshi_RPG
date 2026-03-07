@@ -16,7 +16,7 @@ var loaded: bool = false
 static func _get_slot(global_scope: bool) -> String:
 	if global_scope:
 		return "glb"
-	return GameState.current_slot
+	return Global.current_slot
 
 
 ## Construct the savefile's path
@@ -34,7 +34,7 @@ func path() -> String:
 
 ## Write the current save data to file
 func save() -> Error:
-	if not GameState.current_slot:
+	if not Global.current_slot:
 		# Don't modify save data if we didn't load in properly (i.e. debuggin)
 		return ERR_SKIP
 	if _stem == "":
