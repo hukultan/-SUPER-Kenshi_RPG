@@ -9,7 +9,7 @@ extends Node2D
 func _ready() -> void:
 	# Do the pop-up alert window
 	# Why? I dont freakyng know
-	AudioManager.play_music("res://resources/audio/sfx/op--gurenge-by-lisa-hd.wav")
+	AudioManager.play_music("res://resources/audio/music/op--gurenge-by-lisa-hd.wav")
 	if funi_alert:
 		if OS.is_debug_build(): OS.alert( \
 		"you testing huh?, good luck testing and debugging this", "Developer detected")

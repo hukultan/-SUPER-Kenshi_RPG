@@ -19,11 +19,15 @@ script = ExtResource("1_pl3ei")
 
 [node name="BG" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(48.5, 25.5)
+scale = Vector2(1, 0.78)
 texture = ExtResource("1_ld0bs")
 
 [node name="Fill" type="Sprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_srvhr")
+position = Vector2(48.5, 25.5)
+scale = Vector2(1, 0.78)
 texture = ExtResource("2_mt53v")
 
 [node name="PP" type="Sprite2D" parent="."]

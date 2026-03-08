@@ -11,7 +11,7 @@ var sfx_players: Array[AudioStreamPlayer] = []
 
 
 func _ready() -> void:
-	for i: int in range(0, POOL_SIZE):
+	for i: int in randi_range(0, POOL_SIZE):
 		var player := AudioStreamPlayer.new()
 		effects_pool.add_child(player)
 		sfx_players.append(player)
@@ -42,6 +42,8 @@ func get_next_sfx_player() -> AudioStreamPlayer:
 func on_player_finished(player: AudioStreamPlayer) -> void:
 	if player.has_meta(&"temp"):
 		player.queue_free()
+	else:
+		player.play()
 
 
 

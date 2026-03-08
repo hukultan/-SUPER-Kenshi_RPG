@@ -1,15 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://gaj8fxrmffnr"]
+[gd_scene load_steps=6 format=3 uid="uid://gaj8fxrmffnr"]
 
 [ext_resource type="Texture2D" uid="uid://b0xtfy74e7f0g" path="res://textures/other/misc/voi.jpg" id="1_84kc1"]
+[ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="2_dhe43"]
+[ext_resource type="PackedScene" uid="uid://becy5tvguiche" path="res://scenes/battle/pp_bar.tscn" id="3_t58sh"]
+[ext_resource type="PackedScene" uid="uid://b18rrkqjlkt1x" path="res://scenes/ui/label_ui.tscn" id="4_scs2l"]
+[ext_resource type="PackedScene" uid="uid://n3twjklsxqsl" path="res://scenes/ui/menu_cursor.tscn" id="5_5wxnt"]
 
 [node name="BattleCanvas" type="CanvasLayer"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PanelRight" type="Sprite2D" parent="."]
 position = Vector2(861.31506, 536.94604)
 scale = Vector2(0.5209409, 0.24043584)
 texture = ExtResource("1_84kc1")
 
-[node name="PartyControlHolder" type="Control" parent="Sprite2D"]
+[node name="PartyControlHolder" type="Control" parent="PanelRight"]
 layout_mode = 3
 anchor_left = 0.569
 anchor_top = 0.46100003
@@ -22,7 +26,7 @@ offset_bottom = -11.835999
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Sprite2D/PartyControlHolder"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelRight/PartyControlHolder"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.63000005
@@ -36,10 +40,162 @@ offset_bottom = 411.97668
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="Sprite2D/PartyControlHolder/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="PanelRight/PartyControlHolder/MarginContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 115
+theme_override_constants/v_separation = 14
+columns = 2
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="LabelPlayer1" parent="PanelRight/PartyControlHolder/MarginContainer/GridContainer" instance=ExtResource("4_scs2l")]
+layout_mode = 2
+theme_override_constants/outline_size = 35
+theme_override_font_sizes/font_size = 81
+text = "Kenshi"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelRight/PartyControlHolder/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 99
+
+[node name="PPLavelLabel" type="Label" parent="PanelRight/PartyControlHolder/MarginContainer/GridContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dhe43")
+theme_override_font_sizes/font_size = 66
+text = "100"
+
+[node name="PPBarHolder" type="Control" parent="PanelRight/PartyControlHolder/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="PPBar" parent="PanelRight/PartyControlHolder/MarginContainer/GridContainer/HBoxContainer/PPBarHolder" instance=ExtResource("3_t58sh")]
+position = Vector2(0, 66.54595)
+
+[node name="PanelLeft" type="Sprite2D" parent="."]
 position = Vector2(283.84247, 536.94604)
 scale = Vector2(0.50867826, 0.24043584)
 texture = ExtResource("1_84kc1")
+
+[node name="ControlEnemyMenuBackground" type="Control" parent="PanelLeft"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -495.0288
+offset_top = -349.1411
+offset_right = 503.57483
+offset_bottom = 389.1411
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelLeft/ControlEnemyMenuBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.23102
+offset_top = -408.61328
+offset_right = 416.7979
+offset_bottom = 408.61328
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyBackgroundVBox" type="VBoxContainer" parent="PanelLeft/ControlEnemyMenuBackground/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 39
+
+[node name="Label" parent="PanelLeft/ControlEnemyMenuBackground/MarginContainer/EnemyBackgroundVBox" instance=ExtResource("4_scs2l")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "Enemy here"
+
+[node name="Label2" parent="PanelLeft/ControlEnemyMenuBackground/MarginContainer/EnemyBackgroundVBox" instance=ExtResource("4_scs2l")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "Enemy here"
+
+[node name="ActionsMenu" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0.15686275, 0.8156863, 0.8156863, 1)
+position = Vector2(296, 539)
+scale = Vector2(0.18817204, 0.23421589)
+texture = ExtResource("1_84kc1")
+
+[node name="ControlActionMenu" type="Control" parent="ActionsMenu"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1004.3999
+offset_top = -896.60864
+offset_right = -111.6001
+offset_bottom = -85.39136
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionsMenu/ControlActionMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.9713
+offset_top = -388.53027
+offset_right = 286.9713
+offset_bottom = 388.53027
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionsMenu/ControlActionMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Action" parent="ActionsMenu/ControlActionMenu/MarginContainer/VBoxContainer" instance=ExtResource("4_scs2l")]
+layout_mode = 2
+
+[node name="PanelItemList" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 0.383955, 0.8508401, 1)
+position = Vector2(523.65753, 536.94604)
+scale = Vector2(0.7282125, 0.24043584)
+texture = ExtResource("1_84kc1")
+
+[node name="ControlLists" type="Control" parent="PanelItemList"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1056.0106
+offset_top = -856.7776
+offset_right = -48.06305
+offset_bottom = -79.02319
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelItemList/ControlLists"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -387.2496
+offset_top = -422.1499
+offset_right = 387.2496
+offset_bottom = 422.1499
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelItemList/ControlLists/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="PanelItemList/ControlLists/MarginContainer/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="MenuCursor" parent="." instance=ExtResource("5_5wxnt")]
+visible = false
+menu_parent_path = NodePath("../PanelLeft/ControlEnemyMenuBackground/MarginContainer/EnemyBackgroundVBox")
+cursor_offset = Vector2(54.235, 173.1)

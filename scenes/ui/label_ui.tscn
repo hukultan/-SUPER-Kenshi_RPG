@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b18rrkqjlkt1x"]
+
+[ext_resource type="FontFile" uid="uid://ktht01cntw0o" path="res://resources/font/COMIC.TTF" id="1_wwavy"]
+[ext_resource type="Script" uid="uid://hlghipriy673" path="res://scripts/object/ui/menu_item_cursor.gd" id="2_2sn2n"]
+
+[node name="Action" type="Label"]
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_wwavy")
+theme_override_font_sizes/font_size = 106
+text = "Fight"
+script = ExtResource("2_2sn2n")
